@@ -2,55 +2,55 @@ package org.web3j.protocol.core;
 
 import java.math.BigInteger;
 
-import org.web3j.protocol.core.mOkcods.request.ShhFilter;
-import org.web3j.protocol.core.mOkcods.response.DbGOkcex;
-import org.web3j.protocol.core.mOkcods.response.DbGetString;
-import org.web3j.protocol.core.mOkcods.response.DbPutHex;
-import org.web3j.protocol.core.mOkcods.response.DbPutString;
-import org.web3j.protocol.core.mOkcods.response.OkcAccounts;
-import org.web3j.protocol.core.mOkcods.response.OkcBlock;
-import org.web3j.protocol.core.mOkcods.response.OkcBlockNumber;
-import org.web3j.protocol.core.mOkcods.response.OkcCoinbase;
-import org.web3j.protocol.core.mOkcods.response.OkcCompileLLL;
-import org.web3j.protocol.core.mOkcods.response.OkcCompileSerpent;
-import org.web3j.protocol.core.mOkcods.response.OkcCompileSolidity;
-import org.web3j.protocol.core.mOkcods.response.OkcEstimateGas;
-import org.web3j.protocol.core.mOkcods.response.OkcFilter;
-import org.web3j.protocol.core.mOkcods.response.OkcGasPrice;
-import org.web3j.protocol.core.mOkcods.response.OkcGetBalance;
-import org.web3j.protocol.core.mOkcods.response.OkcGetBlockTransactionCountByHash;
-import org.web3j.protocol.core.mOkcods.response.OkcGetBlockTransactionCountByNumber;
-import org.web3j.protocol.core.mOkcods.response.OkcGetCode;
-import org.web3j.protocol.core.mOkcods.response.OkcGetCompilers;
-import org.web3j.protocol.core.mOkcods.response.OkcGetStorageAt;
-import org.web3j.protocol.core.mOkcods.response.OkcGetTransactionCount;
-import org.web3j.protocol.core.mOkcods.response.OkcGetTransactionReceipt;
-import org.web3j.protocol.core.mOkcods.response.OkcGetUncleCountByBlockHash;
-import org.web3j.protocol.core.mOkcods.response.OkcGetUncleCountByBlockNumber;
-import org.web3j.protocol.core.mOkcods.response.OkcGetWork;
-import org.web3j.protocol.core.mOkcods.response.OkcHashrate;
-import org.web3j.protocol.core.mOkcods.response.OkcLog;
-import org.web3j.protocol.core.mOkcods.response.OkcMining;
-import org.web3j.protocol.core.mOkcods.response.OkcProtocolVersion;
-import org.web3j.protocol.core.mOkcods.response.OkcSign;
-import org.web3j.protocol.core.mOkcods.response.OkcSubmitHashrate;
-import org.web3j.protocol.core.mOkcods.response.OkcSubmitWork;
-import org.web3j.protocol.core.mOkcods.response.OkcSyncing;
-import org.web3j.protocol.core.mOkcods.response.OkcTransaction;
-import org.web3j.protocol.core.mOkcods.response.OkcUninstallFilter;
-import org.web3j.protocol.core.mOkcods.response.NetListening;
-import org.web3j.protocol.core.mOkcods.response.NetPeerCount;
-import org.web3j.protocol.core.mOkcods.response.NetVersion;
-import org.web3j.protocol.core.mOkcods.response.ShhAddToGroup;
-import org.web3j.protocol.core.mOkcods.response.ShhHasIdentity;
-import org.web3j.protocol.core.mOkcods.response.ShhMessages;
-import org.web3j.protocol.core.mOkcods.response.ShhNewFilter;
-import org.web3j.protocol.core.mOkcods.response.ShhNewGroup;
-import org.web3j.protocol.core.mOkcods.response.ShhNewIdentity;
-import org.web3j.protocol.core.mOkcods.response.ShhUninstallFilter;
-import org.web3j.protocol.core.mOkcods.response.ShhVersion;
-import org.web3j.protocol.core.mOkcods.response.Web3ClientVersion;
-import org.web3j.protocol.core.mOkcods.response.Web3Sha3;
+import org.web3j.protocol.core.methods.request.ShhFilter;
+import org.web3j.protocol.core.methods.response.DbGOkcex;
+import org.web3j.protocol.core.methods.response.DbGetString;
+import org.web3j.protocol.core.methods.response.DbPutHex;
+import org.web3j.protocol.core.methods.response.DbPutString;
+import org.web3j.protocol.core.methods.response.OkcAccounts;
+import org.web3j.protocol.core.methods.response.OkcBlock;
+import org.web3j.protocol.core.methods.response.OkcBlockNumber;
+import org.web3j.protocol.core.methods.response.OkcCoinbase;
+import org.web3j.protocol.core.methods.response.OkcCompileLLL;
+import org.web3j.protocol.core.methods.response.OkcCompileSerpent;
+import org.web3j.protocol.core.methods.response.OkcCompileSolidity;
+import org.web3j.protocol.core.methods.response.OkcEstimateGas;
+import org.web3j.protocol.core.methods.response.OkcFilter;
+import org.web3j.protocol.core.methods.response.OkcGasPrice;
+import org.web3j.protocol.core.methods.response.OkcGetBalance;
+import org.web3j.protocol.core.methods.response.OkcGetBlockTransactionCountByHash;
+import org.web3j.protocol.core.methods.response.OkcGetBlockTransactionCountByNumber;
+import org.web3j.protocol.core.methods.response.OkcGetCode;
+import org.web3j.protocol.core.methods.response.OkcGetCompilers;
+import org.web3j.protocol.core.methods.response.OkcGetStorageAt;
+import org.web3j.protocol.core.methods.response.OkcGetTransactionCount;
+import org.web3j.protocol.core.methods.response.OkcGetTransactionReceipt;
+import org.web3j.protocol.core.methods.response.OkcGetUncleCountByBlockHash;
+import org.web3j.protocol.core.methods.response.OkcGetUncleCountByBlockNumber;
+import org.web3j.protocol.core.methods.response.OkcGetWork;
+import org.web3j.protocol.core.methods.response.OkcHashrate;
+import org.web3j.protocol.core.methods.response.OkcLog;
+import org.web3j.protocol.core.methods.response.OkcMining;
+import org.web3j.protocol.core.methods.response.OkcProtocolVersion;
+import org.web3j.protocol.core.methods.response.OkcSign;
+import org.web3j.protocol.core.methods.response.OkcSubmitHashrate;
+import org.web3j.protocol.core.methods.response.OkcSubmitWork;
+import org.web3j.protocol.core.methods.response.OkcSyncing;
+import org.web3j.protocol.core.methods.response.OkcTransaction;
+import org.web3j.protocol.core.methods.response.OkcUninstallFilter;
+import org.web3j.protocol.core.methods.response.NetListening;
+import org.web3j.protocol.core.methods.response.NetPeerCount;
+import org.web3j.protocol.core.methods.response.NetVersion;
+import org.web3j.protocol.core.methods.response.ShhAddToGroup;
+import org.web3j.protocol.core.methods.response.ShhHasIdentity;
+import org.web3j.protocol.core.methods.response.ShhMessages;
+import org.web3j.protocol.core.methods.response.ShhNewFilter;
+import org.web3j.protocol.core.methods.response.ShhNewGroup;
+import org.web3j.protocol.core.methods.response.ShhNewIdentity;
+import org.web3j.protocol.core.methods.response.ShhUninstallFilter;
+import org.web3j.protocol.core.methods.response.ShhVersion;
+import org.web3j.protocol.core.methods.response.Web3ClientVersion;
+import org.web3j.protocol.core.methods.response.Web3Sha3;
 
 /**
  * Core Okc JSON-RPC API.
@@ -107,18 +107,18 @@ public interface Okc {
 
     Request<?, OkcSign> OkcSign(String address, String sha3HashOfDataToSign);
 
-    Request<?, org.web3j.protocol.core.mOkcods.response.OkcSendTransaction> OkcSendTransaction(
-            org.web3j.protocol.core.mOkcods.request.Transaction transaction);
+    Request<?, org.web3j.protocol.core.methods.response.OkcSendTransaction> OkcSendTransaction(
+            org.web3j.protocol.core.methods.request.Transaction transaction);
 
-    Request<?, org.web3j.protocol.core.mOkcods.response.OkcSendTransaction> OkcSendRawTransaction(
+    Request<?, org.web3j.protocol.core.methods.response.OkcSendTransaction> OkcSendRawTransaction(
             String signedTransactionData);
 
-    Request<?, org.web3j.protocol.core.mOkcods.response.OkcCall> OkcCall(
-            org.web3j.protocol.core.mOkcods.request.Transaction transaction,
+    Request<?, org.web3j.protocol.core.methods.response.OkcCall> OkcCall(
+            org.web3j.protocol.core.methods.request.Transaction transaction,
             DefaultBlockParameter defaultBlockParameter);
 
     Request<?, OkcEstimateGas> OkcEstimateGas(
-            org.web3j.protocol.core.mOkcods.request.Transaction transaction);
+            org.web3j.protocol.core.methods.request.Transaction transaction);
 
     Request<?, OkcBlock> OkcGetBlockByHash(String blockHash, boolean returnFullTransactionObjects);
 
@@ -150,7 +150,7 @@ public interface Okc {
 
     Request<?, OkcCompileSerpent> OkcCompileSerpent(String sourceCode);
 
-    Request<?, OkcFilter> OkcNewFilter(org.web3j.protocol.core.mOkcods.request.OkcFilter OkcFilter);
+    Request<?, OkcFilter> OkcNewFilter(org.web3j.protocol.core.methods.request.OkcFilter OkcFilter);
 
     Request<?, OkcFilter> OkcNewBlockFilter();
 
@@ -162,7 +162,7 @@ public interface Okc {
 
     Request<?, OkcLog> OkcGetFilterLogs(BigInteger filterId);
 
-    Request<?, OkcLog> OkcGetLogs(org.web3j.protocol.core.mOkcods.request.OkcFilter OkcFilter);
+    Request<?, OkcLog> OkcGetLogs(org.web3j.protocol.core.methods.request.OkcFilter OkcFilter);
 
     Request<?, OkcGetWork> OkcGetWork();
 
@@ -178,8 +178,8 @@ public interface Okc {
 
     Request<?, DbGOkcex> dbGOkcex(String databaseName, String keyName);
 
-    Request<?, org.web3j.protocol.core.mOkcods.response.ShhPost> shhPost(
-            org.web3j.protocol.core.mOkcods.request.ShhPost shhPost);
+    Request<?, org.web3j.protocol.core.methods.response.ShhPost> shhPost(
+            org.web3j.protocol.core.methods.request.ShhPost shhPost);
 
     Request<?, ShhVersion> shhVersion();
 

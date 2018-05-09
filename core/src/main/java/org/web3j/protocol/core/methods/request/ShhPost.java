@@ -1,4 +1,4 @@
-package org.web3j.protocol.core.mOkcods.request;
+package org.web3j.protocol.core.methods.request;
 
 import java.math.BigInteger;
 import java.util.List;

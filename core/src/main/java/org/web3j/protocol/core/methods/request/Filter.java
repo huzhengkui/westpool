@@ -1,4 +1,4 @@
-package org.web3j.protocol.core.mOkcods.request;
+package org.web3j.protocol.core.methods.request;
 
 import java.util.ArrayList;
 import java.util.List;

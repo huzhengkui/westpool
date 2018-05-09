@@ -1,4 +1,4 @@
-package org.web3j.protocol.core.mOkcods.request;
+package org.web3j.protocol.core.methods.request;
 
 import java.math.BigInteger;
 
@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import org.web3j.utils.Numeric;
 
 /**
- * Transaction request object used the below mOkcods.
+ * Transaction request object used the below methods.
  * <ol>
  *     <li>okc_call</li>
  *     <li>okc_sendTransaction</li>
