@@ -81,7 +81,7 @@ public class Fibonacci extends Contract {
     }
 
     public Observable<NotifyEventResponse> notifyEventObservable(OkcFilter filter) {
-        return web3j.OkcLogObservable(filter).map(new Func1<Log, NotifyEventResponse>() {
+        return web3j.okcLogObservable(filter).map(new Func1<Log, NotifyEventResponse>() {
             @Override
             public NotifyEventResponse call(Log log) {
                 Contract.EventValuesWithLog eventValues = extractEventParametersWithLog(NOTIFY_EVENT, log);

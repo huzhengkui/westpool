@@ -132,7 +132,7 @@ public class CoreIT {
     @Test
     public void testOkcHashrate() throws Exception {
         OkcHashrate okcHashrate = web3j.okcHashrate().send();
-        assertThat(okcHashrate.gokcashrate(), is(BigInteger.ZERO));
+        assertThat(okcHashrate.getHashrate(), is(BigInteger.ZERO));
     }
 
     @Test
