@@ -51,8 +51,6 @@ import org.web3j.protocol.core.methods.response.OkcSubmitWork;
 import org.web3j.protocol.core.methods.response.OkcSyncing;
 import org.web3j.protocol.core.methods.response.OkcTransaction;
 import org.web3j.protocol.core.methods.response.OkcUninstallFilter;
-
-
 import org.web3j.protocol.core.methods.response.ShhAddToGroup;
 import org.web3j.protocol.core.methods.response.ShhHasIdentity;
 import org.web3j.protocol.core.methods.response.ShhMessages;

@@ -151,7 +151,7 @@ public interface Okc {
 
     Request<?, OkcCompileSerpent> okcCompileSerpent(String sourceCode);
 
-    Request<?, OkcFilter> okcNewFilter(org.web3j.protocol.core.methods.request.OkcFilter OkcFilter);
+    Request<?, OkcFilter> okcNewFilter(org.web3j.protocol.core.methods.request.OkcFilter okcFilter);
 
     Request<?, OkcFilter> okcNewBlockFilter();
 
@@ -163,7 +163,7 @@ public interface Okc {
 
     Request<?, OkcLog> okcGetFilterLogs(BigInteger filterId);
 
-    Request<?, OkcLog> okcGetLogs(org.web3j.protocol.core.methods.request.OkcFilter OkcFilter);
+    Request<?, OkcLog> okcGetLogs(org.web3j.protocol.core.methods.request.OkcFilter okcFilter);
 
     Request<?, OkcGetWork> okcGetWork();
 
