@@ -131,13 +131,13 @@ public class EnsResolverTest {
     }
 
     private void configureSyncing(boolean isSyncing) throws IOException {
-        OkcSyncing ethSyncing = new OkcSyncing();
+        OkcSyncing okcSyncing = new OkcSyncing();
         OkcSyncing.Result result = new OkcSyncing.Result();
         result.setSyncing(isSyncing);
-        ethSyncing.setResult(result);
+        okcSyncing.setResult(result);
 
         when(web3jService.send(any(Request.class), eq(OkcSyncing.class)))
-                .thenReturn(ethSyncing);
+                .thenReturn(okcSyncing);
     }
 
     private void configureLatestBlock(long timestamp) throws IOException {

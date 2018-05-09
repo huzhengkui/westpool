@@ -71,7 +71,7 @@ public class RequestTest extends RequestTester {
 
     @Test
     public void testOkcSyncing() throws Exception {
-        web3j.ethSyncing().send();
+        web3j.okcSyncing().send();
 
         verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_syncing\",\"params\":[],\"id\":1}");
     }
@@ -288,7 +288,7 @@ public class RequestTest extends RequestTester {
 
     @Test
     public void testOkcGetBlockByNumber() throws Exception {
-        web3j.ethGetBlockByNumber(
+        web3j.okcGetBlockByNumber(
                 DefaultBlockParameter.valueOf(Numeric.toBigInt("0x1b4")), true).send();
 
         verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBlockByNumber\","

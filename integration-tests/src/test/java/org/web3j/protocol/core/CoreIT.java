@@ -113,8 +113,8 @@ public class CoreIT {
 
     @Test
     public void testEthSyncing() throws Exception {
-        EthSyncing ethSyncing = web3j.ethSyncing().send();
-        assertNotNull(ethSyncing.getResult());
+        EthSyncing okcSyncing = web3j.okcSyncing().send();
+        assertNotNull(okcSyncing.getResult());
     }
 
     @Test
@@ -281,7 +281,7 @@ public class CoreIT {
 
     @Test
     public void testEthGetBlockByNumberReturnHashObjects() throws Exception {
-        EthBlock ethBlock = web3j.ethGetBlockByNumber(
+        EthBlock ethBlock = web3j.okcGetBlockByNumber(
                 DefaultBlockParameter.valueOf(config.validBlock()), false).send();
 
         EthBlock.Block block = ethBlock.getBlock();
@@ -293,7 +293,7 @@ public class CoreIT {
 
     @Test
     public void testEthGetBlockByNumberReturnTransactionObjects() throws Exception {
-        EthBlock ethBlock = web3j.ethGetBlockByNumber(
+        EthBlock ethBlock = web3j.okcGetBlockByNumber(
                 DefaultBlockParameter.valueOf(config.validBlock()), true).send();
 
         EthBlock.Block block = ethBlock.getBlock();

@@ -60,7 +60,7 @@ public class ObservableIT {
 
     @Test
     public void testCatchUpToLatestAndSubscribeToNewBlocksObservable() throws Exception {
-        EthBlock ethBlock = web3j.ethGetBlockByNumber(DefaultBlockParameterName.LATEST, false)
+        EthBlock ethBlock = web3j.okcGetBlockByNumber(DefaultBlockParameterName.LATEST, false)
                 .send();
         BigInteger latestBlockNumber = ethBlock.getBlock().getNumber();
         run(web3j.catchUpToLatestAndSubscribeToNewBlocksObservable(

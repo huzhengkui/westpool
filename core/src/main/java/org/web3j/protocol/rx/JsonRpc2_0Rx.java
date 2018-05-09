@@ -130,12 +130,12 @@ public class JsonRpc2_0Rx {
 
         if (ascending) {
             return Observables.range(startBlockNumber, endBlockNumber)
-                    .flatMap(i -> web3j.ethGetBlockByNumber(
+                    .flatMap(i -> web3j.okcGetBlockByNumber(
                             new DefaultBlockParameterNumber(i),
                             fullTransactionObjects).observable());
         } else {
             return Observables.range(startBlockNumber, endBlockNumber, false)
-                    .flatMap(i -> web3j.ethGetBlockByNumber(
+                    .flatMap(i -> web3j.okcGetBlockByNumber(
                             new DefaultBlockParameterNumber(i),
                             fullTransactionObjects).observable());
         }
@@ -223,7 +223,7 @@ public class JsonRpc2_0Rx {
         if (defaultBlockParameter instanceof DefaultBlockParameterNumber) {
             return ((DefaultBlockParameterNumber) defaultBlockParameter).getBlockNumber();
         } else {
-            OkcBlock latestOkcBlock = web3j.ethGetBlockByNumber(
+            OkcBlock latestOkcBlock = web3j.okcGetBlockByNumber(
                     defaultBlockParameter, false).send();
             return latestOkcBlock.getBlock().getNumber();
         }

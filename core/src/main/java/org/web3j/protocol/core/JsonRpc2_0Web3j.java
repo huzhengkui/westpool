@@ -136,92 +136,92 @@ public class JsonRpc2_0Web3j implements Web3j {
     }
 
     @Override
-    public Request<?, OkcProtocolVersion> ethProtocolVersion() {
+    public Request<?, OkcProtocolVersion> okcProtocolVersion() {
         return new Request<>(
-                "eth_protocolVersion",
+                "okc_protocolVersion",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcProtocolVersion.class);
     }
 
     @Override
-    public Request<?, OkcCoinbase> ethCoinbase() {
+    public Request<?, OkcCoinbase> okcCoinbase() {
         return new Request<>(
-                "eth_coinbase",
+                "okc_coinbase",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcCoinbase.class);
     }
 
     @Override
-    public Request<?, OkcSyncing> ethSyncing() {
+    public Request<?, OkcSyncing> okcSyncing() {
         return new Request<>(
-                "eth_syncing",
+                "okc_syncing",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcSyncing.class);
     }
 
     @Override
-    public Request<?, OkcMining> ethMining() {
+    public Request<?, OkcMining> okcMining() {
         return new Request<>(
-                "eth_mining",
+                "okc_mining",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcMining.class);
     }
 
     @Override
-    public Request<?, OkcHashrate> ethHashrate() {
+    public Request<?, OkcHashrate> okcHashrate() {
         return new Request<>(
-                "eth_hashrate",
+                "okc_hashrate",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcHashrate.class);
     }
 
     @Override
-    public Request<?, OkcGasPrice> ethGasPrice() {
+    public Request<?, OkcGasPrice> okcGasPrice() {
         return new Request<>(
-                "eth_gasPrice",
+                "okc_gasPrice",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcGasPrice.class);
     }
 
     @Override
-    public Request<?, OkcAccounts> ethAccounts() {
+    public Request<?, OkcAccounts> okcAccounts() {
         return new Request<>(
-                "eth_accounts",
+                "okc_accounts",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcAccounts.class);
     }
 
     @Override
-    public Request<?, OkcBlockNumber> ethBlockNumber() {
+    public Request<?, OkcBlockNumber> okcBlockNumber() {
         return new Request<>(
-                "eth_blockNumber",
+                "okc_blockNumber",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcBlockNumber.class);
     }
 
     @Override
-    public Request<?, OkcGetBalance> ethGetBalance(
+    public Request<?, OkcGetBalance> okcGetBalance(
             String address, DefaultBlockParameter defaultBlockParameter) {
         return new Request<>(
-                "eth_getBalance",
+                "okc_getBalance",
                 Arrays.asList(address, defaultBlockParameter.getValue()),
                 web3jService,
                 OkcGetBalance.class);
     }
 
     @Override
-    public Request<?, OkcGetStorageAt> ethGetStorageAt(
+    public Request<?, OkcGetStorageAt> okcGetStorageAt(
             String address, BigInteger position, DefaultBlockParameter defaultBlockParameter) {
         return new Request<>(
-                "eth_getStorageAt",
+                "okc_getStorageAt",
                 Arrays.asList(
                         address,
                         Numeric.encodeQuantity(position),
@@ -231,68 +231,68 @@ public class JsonRpc2_0Web3j implements Web3j {
     }
 
     @Override
-    public Request<?, OkcGetTransactionCount> ethGetTransactionCount(
+    public Request<?, OkcGetTransactionCount> okcGetTransactionCount(
             String address, DefaultBlockParameter defaultBlockParameter) {
         return new Request<>(
-                "eth_getTransactionCount",
+                "okc_getTransactionCount",
                 Arrays.asList(address, defaultBlockParameter.getValue()),
                 web3jService,
                 OkcGetTransactionCount.class);
     }
 
     @Override
-    public Request<?, OkcGetBlockTransactionCountByHash> ethGetBlockTransactionCountByHash(
+    public Request<?, OkcGetBlockTransactionCountByHash> okcGetBlockTransactionCountByHash(
             String blockHash) {
         return new Request<>(
-                "eth_getBlockTransactionCountByHash",
+                "okc_getBlockTransactionCountByHash",
                 Arrays.asList(blockHash),
                 web3jService,
                 OkcGetBlockTransactionCountByHash.class);
     }
 
     @Override
-    public Request<?, OkcGetBlockTransactionCountByNumber> ethGetBlockTransactionCountByNumber(
+    public Request<?, OkcGetBlockTransactionCountByNumber> okcGetBlockTransactionCountByNumber(
             DefaultBlockParameter defaultBlockParameter) {
         return new Request<>(
-                "eth_getBlockTransactionCountByNumber",
+                "okc_getBlockTransactionCountByNumber",
                 Arrays.asList(defaultBlockParameter.getValue()),
                 web3jService,
                 OkcGetBlockTransactionCountByNumber.class);
     }
 
     @Override
-    public Request<?, OkcGetUncleCountByBlockHash> ethGetUncleCountByBlockHash(String blockHash) {
+    public Request<?, OkcGetUncleCountByBlockHash> okcGetUncleCountByBlockHash(String blockHash) {
         return new Request<>(
-                "eth_getUncleCountByBlockHash",
+                "okc_getUncleCountByBlockHash",
                 Arrays.asList(blockHash),
                 web3jService,
                 OkcGetUncleCountByBlockHash.class);
     }
 
     @Override
-    public Request<?, OkcGetUncleCountByBlockNumber> ethGetUncleCountByBlockNumber(
+    public Request<?, OkcGetUncleCountByBlockNumber> okcGetUncleCountByBlockNumber(
             DefaultBlockParameter defaultBlockParameter) {
         return new Request<>(
-                "eth_getUncleCountByBlockNumber",
+                "okc_getUncleCountByBlockNumber",
                 Arrays.asList(defaultBlockParameter.getValue()),
                 web3jService,
                 OkcGetUncleCountByBlockNumber.class);
     }
 
     @Override
-    public Request<?, OkcGetCode> ethGetCode(
+    public Request<?, OkcGetCode> okcGetCode(
             String address, DefaultBlockParameter defaultBlockParameter) {
         return new Request<>(
-                "eth_getCode",
+                "okc_getCode",
                 Arrays.asList(address, defaultBlockParameter.getValue()),
                 web3jService,
                 OkcGetCode.class);
     }
 
     @Override
-    public Request<?, OkcSign> ethSign(String address, String sha3HashOfDataToSign) {
+    public Request<?, OkcSign> okcSign(String address, String sha3HashOfDataToSign) {
         return new Request<>(
-                "eth_sign",
+                "okc_sign",
                 Arrays.asList(address, sha3HashOfDataToSign),
                 web3jService,
                 OkcSign.class);
@@ -300,10 +300,10 @@ public class JsonRpc2_0Web3j implements Web3j {
 
     @Override
     public Request<?, org.web3j.protocol.core.methods.response.OkcSendTransaction>
-            ethSendTransaction(
+            okcSendTransaction(
             Transaction transaction) {
         return new Request<>(
-                "eth_sendTransaction",
+                "okc_sendTransaction",
                 Arrays.asList(transaction),
                 web3jService,
                 org.web3j.protocol.core.methods.response.OkcSendTransaction.class);
@@ -311,39 +311,39 @@ public class JsonRpc2_0Web3j implements Web3j {
 
     @Override
     public Request<?, org.web3j.protocol.core.methods.response.OkcSendTransaction>
-            ethSendRawTransaction(
+            okcSendRawTransaction(
             String signedTransactionData) {
         return new Request<>(
-                "eth_sendRawTransaction",
+                "okc_sendRawTransaction",
                 Arrays.asList(signedTransactionData),
                 web3jService,
                 org.web3j.protocol.core.methods.response.OkcSendTransaction.class);
     }
 
     @Override
-    public Request<?, org.web3j.protocol.core.methods.response.OkcCall> ethCall(
+    public Request<?, org.web3j.protocol.core.methods.response.OkcCall> okcCall(
             Transaction transaction, DefaultBlockParameter defaultBlockParameter) {
         return new Request<>(
-                "eth_call",
+                "okc_call",
                 Arrays.asList(transaction, defaultBlockParameter),
                 web3jService,
                 org.web3j.protocol.core.methods.response.OkcCall.class);
     }
 
     @Override
-    public Request<?, OkcEstimateGas> ethEstimateGas(Transaction transaction) {
+    public Request<?, OkcEstimateGas> okcEstimateGas(Transaction transaction) {
         return new Request<>(
-                "eth_estimateGas",
+                "okc_estimateGas",
                 Arrays.asList(transaction),
                 web3jService,
                 OkcEstimateGas.class);
     }
 
     @Override
-    public Request<?, OkcBlock> ethGetBlockByHash(
+    public Request<?, OkcBlock> okcGetBlockByHash(
             String blockHash, boolean returnFullTransactionObjects) {
         return new Request<>(
-                "eth_getBlockByHash",
+                "okc_getBlockByHash",
                 Arrays.asList(
                         blockHash,
                         returnFullTransactionObjects),
@@ -352,11 +352,11 @@ public class JsonRpc2_0Web3j implements Web3j {
     }
 
     @Override
-    public Request<?, OkcBlock> ethGetBlockByNumber(
+    public Request<?, OkcBlock> okcGetBlockByNumber(
             DefaultBlockParameter defaultBlockParameter,
             boolean returnFullTransactionObjects) {
         return new Request<>(
-                "eth_getBlockByNumber",
+                "okc_getBlockByNumber",
                 Arrays.asList(
                         defaultBlockParameter.getValue(),
                         returnFullTransactionObjects),
@@ -365,19 +365,19 @@ public class JsonRpc2_0Web3j implements Web3j {
     }
 
     @Override
-    public Request<?, OkcTransaction> ethGetTransactionByHash(String transactionHash) {
+    public Request<?, OkcTransaction> okcGetTransactionByHash(String transactionHash) {
         return new Request<>(
-                "eth_getTransactionByHash",
+                "okc_getTransactionByHash",
                 Arrays.asList(transactionHash),
                 web3jService,
                 OkcTransaction.class);
     }
 
     @Override
-    public Request<?, OkcTransaction> ethGetTransactionByBlockHashAndIndex(
+    public Request<?, OkcTransaction> okcGetTransactionByBlockHashAndIndex(
             String blockHash, BigInteger transactionIndex) {
         return new Request<>(
-                "eth_getTransactionByBlockHashAndIndex",
+                "okc_getTransactionByBlockHashAndIndex",
                 Arrays.asList(
                         blockHash,
                         Numeric.encodeQuantity(transactionIndex)),
@@ -386,10 +386,10 @@ public class JsonRpc2_0Web3j implements Web3j {
     }
 
     @Override
-    public Request<?, OkcTransaction> ethGetTransactionByBlockNumberAndIndex(
+    public Request<?, OkcTransaction> okcGetTransactionByBlockNumberAndIndex(
             DefaultBlockParameter defaultBlockParameter, BigInteger transactionIndex) {
         return new Request<>(
-                "eth_getTransactionByBlockNumberAndIndex",
+                "okc_getTransactionByBlockNumberAndIndex",
                 Arrays.asList(
                         defaultBlockParameter.getValue(),
                         Numeric.encodeQuantity(transactionIndex)),
@@ -398,19 +398,19 @@ public class JsonRpc2_0Web3j implements Web3j {
     }
 
     @Override
-    public Request<?, OkcGetTransactionReceipt> ethGetTransactionReceipt(String transactionHash) {
+    public Request<?, OkcGetTransactionReceipt> okcGetTransactionReceipt(String transactionHash) {
         return new Request<>(
-                "eth_getTransactionReceipt",
+                "okc_getTransactionReceipt",
                 Arrays.asList(transactionHash),
                 web3jService,
                 OkcGetTransactionReceipt.class);
     }
 
     @Override
-    public Request<?, OkcBlock> ethGetUncleByBlockHashAndIndex(
+    public Request<?, OkcBlock> okcGetUncleByBlockHashAndIndex(
             String blockHash, BigInteger transactionIndex) {
         return new Request<>(
-                "eth_getUncleByBlockHashAndIndex",
+                "okc_getUncleByBlockHashAndIndex",
                 Arrays.asList(
                         blockHash,
                         Numeric.encodeQuantity(transactionIndex)),
@@ -419,10 +419,10 @@ public class JsonRpc2_0Web3j implements Web3j {
     }
 
     @Override
-    public Request<?, OkcBlock> ethGetUncleByBlockNumberAndIndex(
+    public Request<?, OkcBlock> okcGetUncleByBlockNumberAndIndex(
             DefaultBlockParameter defaultBlockParameter, BigInteger uncleIndex) {
         return new Request<>(
-                "eth_getUncleByBlockNumberAndIndex",
+                "okc_getUncleByBlockNumberAndIndex",
                 Arrays.asList(
                         defaultBlockParameter.getValue(),
                         Numeric.encodeQuantity(uncleIndex)),
@@ -431,129 +431,129 @@ public class JsonRpc2_0Web3j implements Web3j {
     }
 
     @Override
-    public Request<?, OkcGetCompilers> ethGetCompilers() {
+    public Request<?, OkcGetCompilers> okcGetCompilers() {
         return new Request<>(
-                "eth_getCompilers",
+                "okc_getCompilers",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcGetCompilers.class);
     }
 
     @Override
-    public Request<?, OkcCompileLLL> ethCompileLLL(String sourceCode) {
+    public Request<?, OkcCompileLLL> okcCompileLLL(String sourceCode) {
         return new Request<>(
-                "eth_compileLLL",
+                "okc_compileLLL",
                 Arrays.asList(sourceCode),
                 web3jService,
                 OkcCompileLLL.class);
     }
 
     @Override
-    public Request<?, OkcCompileSolidity> ethCompileSolidity(String sourceCode) {
+    public Request<?, OkcCompileSolidity> okcCompileSolidity(String sourceCode) {
         return new Request<>(
-                "eth_compileSolidity",
+                "okc_compileSolidity",
                 Arrays.asList(sourceCode),
                 web3jService,
                 OkcCompileSolidity.class);
     }
 
     @Override
-    public Request<?, OkcCompileSerpent> ethCompileSerpent(String sourceCode) {
+    public Request<?, OkcCompileSerpent> okcCompileSerpent(String sourceCode) {
         return new Request<>(
-                "eth_compileSerpent",
+                "okc_compileSerpent",
                 Arrays.asList(sourceCode),
                 web3jService,
                 OkcCompileSerpent.class);
     }
 
     @Override
-    public Request<?, OkcFilter> ethNewFilter(
-            org.web3j.protocol.core.methods.request.OkcFilter ethFilter) {
+    public Request<?, OkcFilter> okcNewFilter(
+            org.web3j.protocol.core.methods.request.OkcFilter okcFilter) {
         return new Request<>(
-                "eth_newFilter",
-                Arrays.asList(ethFilter),
+                "okc_newFilter",
+                Arrays.asList(okcFilter),
                 web3jService,
                 OkcFilter.class);
     }
 
     @Override
-    public Request<?, OkcFilter> ethNewBlockFilter() {
+    public Request<?, OkcFilter> okcNewBlockFilter() {
         return new Request<>(
-                "eth_newBlockFilter",
+                "okc_newBlockFilter",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcFilter.class);
     }
 
     @Override
-    public Request<?, OkcFilter> ethNewPendingTransactionFilter() {
+    public Request<?, OkcFilter> okcNewPendingTransactionFilter() {
         return new Request<>(
-                "eth_newPendingTransactionFilter",
+                "okc_newPendingTransactionFilter",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcFilter.class);
     }
 
     @Override
-    public Request<?, OkcUninstallFilter> ethUninstallFilter(BigInteger filterId) {
+    public Request<?, OkcUninstallFilter> okcUninstallFilter(BigInteger filterId) {
         return new Request<>(
-                "eth_uninstallFilter",
+                "okc_uninstallFilter",
                 Arrays.asList(Numeric.toHexStringWithPrefixSafe(filterId)),
                 web3jService,
                 OkcUninstallFilter.class);
     }
 
     @Override
-    public Request<?, OkcLog> ethGetFilterChanges(BigInteger filterId) {
+    public Request<?, OkcLog> okcGetFilterChanges(BigInteger filterId) {
         return new Request<>(
-                "eth_getFilterChanges",
+                "okc_getFilterChanges",
                 Arrays.asList(Numeric.toHexStringWithPrefixSafe(filterId)),
                 web3jService,
                 OkcLog.class);
     }
 
     @Override
-    public Request<?, OkcLog> ethGetFilterLogs(BigInteger filterId) {
+    public Request<?, OkcLog> okcGetFilterLogs(BigInteger filterId) {
         return new Request<>(
-                "eth_getFilterLogs",
+                "okc_getFilterLogs",
                 Arrays.asList(Numeric.toHexStringWithPrefixSafe(filterId)),
                 web3jService,
                 OkcLog.class);
     }
 
     @Override
-    public Request<?, OkcLog> ethGetLogs(
-            org.web3j.protocol.core.methods.request.OkcFilter ethFilter) {
+    public Request<?, OkcLog> okcGetLogs(
+            org.web3j.protocol.core.methods.request.OkcFilter okcFilter) {
         return new Request<>(
-                "eth_getLogs",
-                Arrays.asList(ethFilter),
+                "okc_getLogs",
+                Arrays.asList(okcFilter),
                 web3jService,
                 OkcLog.class);
     }
 
     @Override
-    public Request<?, OkcGetWork> ethGetWork() {
+    public Request<?, OkcGetWork> okcGetWork() {
         return new Request<>(
-                "eth_getWork",
+                "okc_getWork",
                 Collections.<String>emptyList(),
                 web3jService,
                 OkcGetWork.class);
     }
 
     @Override
-    public Request<?, OkcSubmitWork> ethSubmitWork(
+    public Request<?, OkcSubmitWork> okcSubmitWork(
             String nonce, String headerPowHash, String mixDigest) {
         return new Request<>(
-                "eth_submitWork",
+                "okc_submitWork",
                 Arrays.asList(nonce, headerPowHash, mixDigest),
                 web3jService,
                 OkcSubmitWork.class);
     }
 
     @Override
-    public Request<?, OkcSubmitHashrate> ethSubmitHashrate(String hashrate, String clientId) {
+    public Request<?, OkcSubmitHashrate> okcSubmitHashrate(String hashrate, String clientId) {
         return new Request<>(
-                "eth_submitHashrate",
+                "okc_submitHashrate",
                 Arrays.asList(hashrate, clientId),
                 web3jService,
                 OkcSubmitHashrate.class);
@@ -687,19 +687,19 @@ public class JsonRpc2_0Web3j implements Web3j {
     }
 
     @Override
-    public Observable<String> ethBlockHashObservable() {
-        return web3jRx.ethBlockHashObservable(blockTime);
+    public Observable<String> okcBlockHashObservable() {
+        return web3jRx.okcBlockHashObservable(blockTime);
     }
 
     @Override
-    public Observable<String> ethPendingTransactionHashObservable() {
-        return web3jRx.ethPendingTransactionHashObservable(blockTime);
+    public Observable<String> okcPendingTransactionHashObservable() {
+        return web3jRx.okcPendingTransactionHashObservable(blockTime);
     }
 
     @Override
-    public Observable<Log> ethLogObservable(
-            org.web3j.protocol.core.methods.request.OkcFilter ethFilter) {
-        return web3jRx.ethLogObservable(ethFilter, blockTime);
+    public Observable<Log> okcLogObservable(
+            org.web3j.protocol.core.methods.request.OkcFilter okcFilter) {
+        return web3jRx.okcLogObservable(okcFilter, blockTime);
     }
 
     @Override

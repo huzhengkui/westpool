@@ -3,7 +3,7 @@ package org.web3j.protocol.core;
 import java.math.BigInteger;
 
 import org.web3j.protocol.core.methods.request.ShhFilter;
-import org.web3j.protocol.core.methods.response.DbGOkcex;
+import org.web3j.protocol.core.methods.response.DbGetHex;
 import org.web3j.protocol.core.methods.response.DbGetString;
 import org.web3j.protocol.core.methods.response.DbPutHex;
 import org.web3j.protocol.core.methods.response.DbPutString;
@@ -176,7 +176,7 @@ public interface Okc {
 
     Request<?, DbPutHex> dbPutHex(String databaseName, String keyName, String dataToStore);
 
-    Request<?, DbGOkcex> dbGOkcex(String databaseName, String keyName);
+    Request<?, DbGOkcex> DbGetHex(String databaseName, String keyName);
 
     Request<?, org.web3j.protocol.core.methods.response.ShhPost> shhPost(
             org.web3j.protocol.core.methods.request.ShhPost shhPost);

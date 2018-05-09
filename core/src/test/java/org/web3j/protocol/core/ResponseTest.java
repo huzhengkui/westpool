@@ -225,9 +225,9 @@ public class ResponseTest extends ResponseTester {
         // \"highestBlock\":\"0x21dab4\",\"knownStates\":\"0x0\",\"pulledStates\":\"0x0\",
         // \"startingBlock\":\"0xa51\"}}"
 
-        OkcSyncing ethSyncing = deserialiseResponse(OkcSyncing.class);
+        OkcSyncing okcSyncing = deserialiseResponse(OkcSyncing.class);
 
-        assertThat(ethSyncing.getResult(),
+        assertThat(okcSyncing.getResult(),
                 equalTo(new OkcSyncing.Syncing("0x384", "0x386", "0x454", null, null)));
     }
 
@@ -241,8 +241,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcSyncing ethSyncing = deserialiseResponse(OkcSyncing.class);
-        assertThat(ethSyncing.isSyncing(), is(false));
+        OkcSyncing okcSyncing = deserialiseResponse(OkcSyncing.class);
+        assertThat(okcSyncing.isSyncing(), is(false));
     }
 
     @Test
