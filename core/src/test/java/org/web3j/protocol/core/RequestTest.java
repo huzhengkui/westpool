@@ -366,7 +366,7 @@ public class RequestTest extends RequestTester {
 
     @Test
     public void testOkcCompileSolidity() throws Exception {
-        web3j.ethCompileSolidity(
+        web3j.okcCompileSolidity(
                 "contract test { function multiply(uint a) returns(uint d) {   return a * 7;   } }")
                 .send();
 
@@ -377,7 +377,7 @@ public class RequestTest extends RequestTester {
 
     @Test
     public void testOkcCompileLLL() throws Exception {
-        web3j.ethCompileLLL("(returnlll (suicide (caller)))").send();
+        web3j.okcCompileLLL("(returnlll (suicide (caller)))").send();
 
         verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_compileLLL\","
                 + "\"params\":[\"(returnlll (suicide (caller)))\"],\"id\":1}");
@@ -385,7 +385,7 @@ public class RequestTest extends RequestTester {
 
     @Test
     public void testOkcCompileSerpent() throws Exception {
-        web3j.ethCompileSerpent("/* some serpent */").send();
+        web3j.okcCompileSerpent("/* some serpent */").send();
 
         verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_compileSerpent\","
                 + "\"params\":[\"/* some serpent */\"],\"id\":1}");
@@ -420,7 +420,7 @@ public class RequestTest extends RequestTester {
 
     @Test
     public void testOkcUninstallFilter() throws Exception {
-        web3j.ethUninstallFilter(Numeric.toBigInt("0xb")).send();
+        web3j.okcUninstallFilter(Numeric.toBigInt("0xb")).send();
 
         verifyResult("{\"jsonrpc\":\"2.0\",\"method\":\"eth_uninstallFilter\","
                 + "\"params\":[\"0x0b\"],\"id\":1}");

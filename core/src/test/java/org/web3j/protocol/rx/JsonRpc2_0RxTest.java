@@ -156,7 +156,7 @@ public class JsonRpc2_0RxTest {
                         + "\"0x31c2342b1e0b8ffda1507fbffddf213c4b3c1e819ff6a84b943faabb0ebf2403\""
                         + "]}",
                 OkcLog.class);
-        OkcUninstallFilter ethUninstallFilter = objectMapper.readValue(
+        OkcUninstallFilter okcUninstallFilter = objectMapper.readValue(
                 "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":true}", OkcUninstallFilter.class);
 
         when(web3jService.send(any(Request.class), eq(OkcFilter.class)))
@@ -164,7 +164,7 @@ public class JsonRpc2_0RxTest {
         when(web3jService.send(any(Request.class), eq(OkcLog.class)))
                 .thenReturn(okcLog);
         when(web3jService.send(any(Request.class), eq(OkcUninstallFilter.class)))
-                .thenReturn(ethUninstallFilter);
+                .thenReturn(okcUninstallFilter);
 
         Observable<OkcBlock> observable = web3j.catchUpToLatestAndSubscribeToNewBlocksObservable(
                 new DefaultBlockParameterNumber(BigInteger.ZERO),

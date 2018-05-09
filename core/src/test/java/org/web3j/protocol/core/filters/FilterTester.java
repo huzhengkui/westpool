@@ -55,7 +55,7 @@ public abstract class FilterTester {
                         + "  \"result\": \"0x1\"\n"
                         + "}", OkcFilter.class);
 
-        OkcUninstallFilter ethUninstallFilter = objectMapper.readValue(
+        OkcUninstallFilter okcUninstallFilter = objectMapper.readValue(
                 "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":true}", OkcUninstallFilter.class);
 
         @SuppressWarnings("unchecked")
@@ -71,7 +71,7 @@ public abstract class FilterTester {
         when(web3jService.send(any(Request.class), eq(OkcLog.class)))
                 .thenReturn(okcLog);
         when(web3jService.send(any(Request.class), eq(OkcUninstallFilter.class)))
-                .thenReturn(ethUninstallFilter);
+                .thenReturn(okcUninstallFilter);
 
         Subscription subscription = observable.subscribe(
                 result -> {

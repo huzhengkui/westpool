@@ -124,12 +124,12 @@ public abstract class Filter<T> {
         schedule.cancel(false);
 
         try {
-            OkcUninstallFilter ethUninstallFilter = web3j.okcUninstallFilter(filterId).send();
-            if (ethUninstallFilter.hasError()) {
-                throwException(ethUninstallFilter.getError());
+            OkcUninstallFilter okcUninstallFilter = web3j.okcUninstallFilter(filterId).send();
+            if (okcUninstallFilter.hasError()) {
+                throwException(okcUninstallFilter.getError());
             }
 
-            if (!ethUninstallFilter.isUninstalled()) {
+            if (!okcUninstallFilter.isUninstalled()) {
                 throw new FilterException("Filter with id '" + filterId + "' failed to uninstall");
             }
         } catch (IOException e) {

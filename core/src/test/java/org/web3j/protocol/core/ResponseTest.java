@@ -1174,8 +1174,8 @@ public class ResponseTest extends ResponseTester {
                 )
         ));
 
-        OkcCompileSolidity ethCompileSolidity = deserialiseResponse(OkcCompileSolidity.class);
-        assertThat(ethCompileSolidity.getCompiledSolidity(), equalTo(compiledSolidity));
+        OkcCompileSolidity okcCompileSolidity = deserialiseResponse(OkcCompileSolidity.class);
+        assertThat(okcCompileSolidity.getCompiledSolidity(), equalTo(compiledSolidity));
     }
 
     @Test
@@ -1190,8 +1190,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcCompileLLL ethCompileLLL = deserialiseResponse(OkcCompileLLL.class);
-        assertThat(ethCompileLLL.getCompiledSourceCode(),
+        OkcCompileLLL okcCompileLLL = deserialiseResponse(OkcCompileLLL.class);
+        assertThat(okcCompileLLL.getCompiledSourceCode(),
                 is("0x603880600c6000396000f3006001600060e060020a600035048063c6888fa114601857005b60"
                         + "21600435602b565b8060005260206000f35b600081600702905091905056"));
     }
@@ -1208,8 +1208,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcCompileSerpent ethCompileSerpent = deserialiseResponse(OkcCompileSerpent.class);
-        assertThat(ethCompileSerpent.getCompiledSourceCode(),
+        OkcCompileSerpent okcCompileSerpent = deserialiseResponse(OkcCompileSerpent.class);
+        assertThat(okcCompileSerpent.getCompiledSourceCode(),
                 is("0x603880600c6000396000f3006001600060e060020a600035048063c6888fa114601857005b60"
                         + "21600435602b565b8060005260206000f35b600081600702905091905056"));
     }
@@ -1238,8 +1238,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcUninstallFilter ethUninstallFilter = deserialiseResponse(OkcUninstallFilter.class);
-        assertThat(ethUninstallFilter.isUninstalled(), is(true));
+        OkcUninstallFilter okcUninstallFilter = deserialiseResponse(OkcUninstallFilter.class);
+        assertThat(okcUninstallFilter.isUninstalled(), is(true));
     }
 
     @Test
