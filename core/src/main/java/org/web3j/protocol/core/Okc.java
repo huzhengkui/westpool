@@ -66,109 +66,109 @@ public interface Okc {
 
     Request<?, NetPeerCount> netPeerCount();
 
-    Request<?, OkcProtocolVersion> OkcProtocolVersion();
+    Request<?, OkcProtocolVersion> okcProtocolVersion();
 
-    Request<?, OkcCoinbase> OkcCoinbase();
+    Request<?, OkcCoinbase> okcCoinbase();
 
-    Request<?, OkcSyncing> OkcSyncing();
+    Request<?, OkcSyncing> okcSyncing();
 
-    Request<?, OkcMining> OkcMining();
+    Request<?, OkcMining> okcMining();
 
-    Request<?, OkcHashrate> OkcHashrate();
+    Request<?, OkcHashrate> okcHashrate();
 
-    Request<?, OkcGasPrice> OkcGasPrice();
+    Request<?, OkcGasPrice> okcGasPrice();
 
-    Request<?, OkcAccounts> OkcAccounts();
+    Request<?, OkcAccounts> okcAccounts();
 
-    Request<?, OkcBlockNumber> OkcBlockNumber();
+    Request<?, OkcBlockNumber> okcBlockNumber();
 
-    Request<?, OkcGetBalance> OkcGetBalance(
+    Request<?, OkcGetBalance> okcGetBalance(
             String address, DefaultBlockParameter defaultBlockParameter);
 
-    Request<?, OkcGetStorageAt> OkcGetStorageAt(
+    Request<?, OkcGetStorageAt> okcGetStorageAt(
             String address, BigInteger position,
             DefaultBlockParameter defaultBlockParameter);
 
-    Request<?, OkcGetTransactionCount> OkcGetTransactionCount(
+    Request<?, OkcGetTransactionCount> okcGetTransactionCount(
             String address, DefaultBlockParameter defaultBlockParameter);
 
-    Request<?, OkcGetBlockTransactionCountByHash> OkcGetBlockTransactionCountByHash(
+    Request<?, OkcGetBlockTransactionCountByHash> okcGetBlockTransactionCountByHash(
             String blockHash);
 
-    Request<?, OkcGetBlockTransactionCountByNumber> OkcGetBlockTransactionCountByNumber(
+    Request<?, OkcGetBlockTransactionCountByNumber> okcGetBlockTransactionCountByNumber(
             DefaultBlockParameter defaultBlockParameter);
 
-    Request<?, OkcGetUncleCountByBlockHash> OkcGetUncleCountByBlockHash(String blockHash);
+    Request<?, OkcGetUncleCountByBlockHash> okcGetUncleCountByBlockHash(String blockHash);
 
-    Request<?, OkcGetUncleCountByBlockNumber> OkcGetUncleCountByBlockNumber(
+    Request<?, OkcGetUncleCountByBlockNumber> okcGetUncleCountByBlockNumber(
             DefaultBlockParameter defaultBlockParameter);
 
-    Request<?, OkcGetCode> OkcGetCode(String address, DefaultBlockParameter defaultBlockParameter);
+    Request<?, OkcGetCode> okcGetCode(String address, DefaultBlockParameter defaultBlockParameter);
 
-    Request<?, OkcSign> OkcSign(String address, String sha3HashOfDataToSign);
+    Request<?, OkcSign> okcSign(String address, String sha3HashOfDataToSign);
 
-    Request<?, org.web3j.protocol.core.methods.response.OkcSendTransaction> OkcSendTransaction(
+    Request<?, org.web3j.protocol.core.methods.response.OkcSendTransaction> okcSendTransaction(
             org.web3j.protocol.core.methods.request.Transaction transaction);
 
-    Request<?, org.web3j.protocol.core.methods.response.OkcSendTransaction> OkcSendRawTransaction(
+    Request<?, org.web3j.protocol.core.methods.response.OkcSendTransaction> okcSendRawTransaction(
             String signedTransactionData);
 
-    Request<?, org.web3j.protocol.core.methods.response.OkcCall> OkcCall(
+    Request<?, org.web3j.protocol.core.methods.response.OkcCall> okcCall(
             org.web3j.protocol.core.methods.request.Transaction transaction,
             DefaultBlockParameter defaultBlockParameter);
 
-    Request<?, OkcEstimateGas> OkcEstimateGas(
+    Request<?, OkcEstimateGas> okcEstimateGas(
             org.web3j.protocol.core.methods.request.Transaction transaction);
 
-    Request<?, OkcBlock> OkcGetBlockByHash(String blockHash, boolean returnFullTransactionObjects);
+    Request<?, OkcBlock> okcGetBlockByHash(String blockHash, boolean returnFullTransactionObjects);
 
-    Request<?, OkcBlock> OkcGetBlockByNumber(
+    Request<?, OkcBlock> okcGetBlockByNumber(
             DefaultBlockParameter defaultBlockParameter,
             boolean returnFullTransactionObjects);
 
-    Request<?, OkcTransaction> OkcGetTransactionByHash(String transactionHash);
+    Request<?, OkcTransaction> okcGetTransactionByHash(String transactionHash);
 
-    Request<?, OkcTransaction> OkcGetTransactionByBlockHashAndIndex(
+    Request<?, OkcTransaction> okcGetTransactionByBlockHashAndIndex(
             String blockHash, BigInteger transactionIndex);
 
-    Request<?, OkcTransaction> OkcGetTransactionByBlockNumberAndIndex(
+    Request<?, OkcTransaction> okcGetTransactionByBlockNumberAndIndex(
             DefaultBlockParameter defaultBlockParameter, BigInteger transactionIndex);
 
-    Request<?, OkcGetTransactionReceipt> OkcGetTransactionReceipt(String transactionHash);
+    Request<?, OkcGetTransactionReceipt> okcGetTransactionReceipt(String transactionHash);
 
-    Request<?, OkcBlock> OkcGetUncleByBlockHashAndIndex(
+    Request<?, OkcBlock> okcGetUncleByBlockHashAndIndex(
             String blockHash, BigInteger transactionIndex);
 
-    Request<?, OkcBlock> OkcGetUncleByBlockNumberAndIndex(
+    Request<?, OkcBlock> okcGetUncleByBlockNumberAndIndex(
             DefaultBlockParameter defaultBlockParameter, BigInteger transactionIndex);
 
-    Request<?, OkcGetCompilers> OkcGetCompilers();
+    Request<?, OkcGetCompilers> okcGetCompilers();
 
-    Request<?, OkcCompileLLL> OkcCompileLLL(String sourceCode);
+    Request<?, OkcCompileLLL> okcCompileLLL(String sourceCode);
 
-    Request<?, OkcCompileSolidity> OkcCompileSolidity(String sourceCode);
+    Request<?, OkcCompileSolidity> okcCompileSolidity(String sourceCode);
 
-    Request<?, OkcCompileSerpent> OkcCompileSerpent(String sourceCode);
+    Request<?, OkcCompileSerpent> okcCompileSerpent(String sourceCode);
 
-    Request<?, OkcFilter> OkcNewFilter(org.web3j.protocol.core.methods.request.OkcFilter OkcFilter);
+    Request<?, OkcFilter> okcNewFilter(org.web3j.protocol.core.methods.request.OkcFilter OkcFilter);
 
-    Request<?, OkcFilter> OkcNewBlockFilter();
+    Request<?, OkcFilter> okcNewBlockFilter();
 
-    Request<?, OkcFilter> OkcNewPendingTransactionFilter();
+    Request<?, OkcFilter> okcNewPendingTransactionFilter();
 
-    Request<?, OkcUninstallFilter> OkcUninstallFilter(BigInteger filterId);
+    Request<?, OkcUninstallFilter> okcUninstallFilter(BigInteger filterId);
 
-    Request<?, OkcLog> OkcGetFilterChanges(BigInteger filterId);
+    Request<?, OkcLog> okcGetFilterChanges(BigInteger filterId);
 
-    Request<?, OkcLog> OkcGetFilterLogs(BigInteger filterId);
+    Request<?, OkcLog> okcGetFilterLogs(BigInteger filterId);
 
-    Request<?, OkcLog> OkcGetLogs(org.web3j.protocol.core.methods.request.OkcFilter OkcFilter);
+    Request<?, OkcLog> okcGetLogs(org.web3j.protocol.core.methods.request.OkcFilter OkcFilter);
 
-    Request<?, OkcGetWork> OkcGetWork();
+    Request<?, OkcGetWork> okcGetWork();
 
-    Request<?, OkcSubmitWork> OkcSubmitWork(String nonce, String headerPowHash, String mixDigest);
+    Request<?, OkcSubmitWork> okcSubmitWork(String nonce, String headerPowHash, String mixDigest);
 
-    Request<?, OkcSubmitHashrate> OkcSubmitHashrate(String hashrate, String clientId);
+    Request<?, OkcSubmitHashrate> okcSubmitHashrate(String hashrate, String clientId);
 
     Request<?, DbPutString> dbPutString(String databaseName, String keyName, String stringToStore);
 
@@ -176,7 +176,7 @@ public interface Okc {
 
     Request<?, DbPutHex> dbPutHex(String databaseName, String keyName, String dataToStore);
 
-    Request<?, DbGOkcex> DbGetHex(String databaseName, String keyName);
+    Request<?, DbGetHex> dbGetHex(String databaseName, String keyName);
 
     Request<?, org.web3j.protocol.core.methods.response.ShhPost> shhPost(
             org.web3j.protocol.core.methods.request.ShhPost shhPost);
