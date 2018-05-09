@@ -55,12 +55,12 @@ public class TransferTest extends ManagedTransactionTester {
         transactionReceipt.setStatus("0x1");
         prepareTransaction(transactionReceipt);
 
-        OkcGasPrice ethGasPrice = new OkcGasPrice();
-        ethGasPrice.setResult("0x1");
+        OkcGasPrice okcGasPrice = new OkcGasPrice();
+        okcGasPrice.setResult("0x1");
 
         Request<?, OkcGasPrice> gasPriceRequest = mock(Request.class);
-        when(gasPriceRequest.send()).thenReturn(ethGasPrice);
-        when(web3j.ethGasPrice()).thenReturn((Request) gasPriceRequest);
+        when(gasPriceRequest.send()).thenReturn(okcGasPrice);
+        when(web3j.okcGasPrice()).thenReturn((Request) gasPriceRequest);
 
         return transactionReceipt;
     }

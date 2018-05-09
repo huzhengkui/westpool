@@ -46,9 +46,9 @@ public abstract class TransactionManager {
             String data, BigInteger value)
             throws IOException, TransactionException {
 
-        OkcSendTransaction ethSendTransaction = sendTransaction(
+        OkcSendTransaction okcSendTransaction = sendTransaction(
                 gasPrice, gasLimit, to, data, value);
-        return processResponse(ethSendTransaction);
+        return processResponse(okcSendTransaction);
     }
 
     public abstract OkcSendTransaction sendTransaction(

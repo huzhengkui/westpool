@@ -94,9 +94,9 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcBlock ethBlock = deserialiseResponse(OkcBlock.class);
-        assertTrue(ethBlock.hasError());
-        assertThat(ethBlock.getError(), equalTo(
+        OkcBlock okcBlock = deserialiseResponse(OkcBlock.class);
+        assertTrue(okcBlock.hasError());
+        assertThat(okcBlock.getError(), equalTo(
                 new Response.Error(-32602, "Invalid address length, expected 40 got 64 bytes")));
     }
 
@@ -114,9 +114,9 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcBlock ethBlock = deserialiseResponse(OkcBlock.class);
-        assertTrue(ethBlock.hasError());
-        assertThat(ethBlock.getError().getData(), equalTo("{\"foo\":\"bar\"}"));
+        OkcBlock okcBlock = deserialiseResponse(OkcBlock.class);
+        assertTrue(okcBlock.hasError());
+        assertThat(okcBlock.getError().getData(), equalTo("{\"foo\":\"bar\"}"));
     }
 
     @Test
@@ -201,8 +201,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcProtocolVersion ethProtocolVersion = deserialiseResponse(OkcProtocolVersion.class);
-        assertThat(ethProtocolVersion.getProtocolVersion(), is("54"));
+        OkcProtocolVersion okcProtocolVersion = deserialiseResponse(OkcProtocolVersion.class);
+        assertThat(okcProtocolVersion.getProtocolVersion(), is("54"));
     }
 
     @Test
@@ -255,8 +255,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcMining ethMining = deserialiseResponse(OkcMining.class);
-        assertThat(ethMining.isMining(), is(true));
+        OkcMining okcMining = deserialiseResponse(OkcMining.class);
+        assertThat(okcMining.isMining(), is(true));
     }
 
     @Test
@@ -269,8 +269,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcHashrate ethHashrate = deserialiseResponse(OkcHashrate.class);
-        assertThat(ethHashrate.getHashrate(), equalTo(BigInteger.valueOf(906L)));
+        OkcHashrate okcHashrate = deserialiseResponse(OkcHashrate.class);
+        assertThat(okcHashrate.getHashrate(), equalTo(BigInteger.valueOf(906L)));
     }
 
     @Test
@@ -283,8 +283,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcGasPrice ethGasPrice = deserialiseResponse(OkcGasPrice.class);
-        assertThat(ethGasPrice.getGasPrice(), equalTo(BigInteger.valueOf(10000000000000L)));
+        OkcGasPrice okcGasPrice = deserialiseResponse(OkcGasPrice.class);
+        assertThat(okcGasPrice.getGasPrice(), equalTo(BigInteger.valueOf(10000000000000L)));
     }
 
     @Test
@@ -297,8 +297,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcAccounts ethAccounts = deserialiseResponse(OkcAccounts.class);
-        assertThat(ethAccounts.getAccounts(),
+        OkcAccounts okcAccounts = deserialiseResponse(OkcAccounts.class);
+        assertThat(okcAccounts.getAccounts(),
                 equalTo(Arrays.asList("0x407d73d8a49eeb85d32cf465507dd71d507100c1")));
     }
 
@@ -312,8 +312,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcBlockNumber ethBlockNumber = deserialiseResponse(OkcBlockNumber.class);
-        assertThat(ethBlockNumber.getBlockNumber(), equalTo(BigInteger.valueOf(1207L)));
+        OkcBlockNumber okcBlockNumber = deserialiseResponse(OkcBlockNumber.class);
+        assertThat(okcBlockNumber.getBlockNumber(), equalTo(BigInteger.valueOf(1207L)));
     }
 
     @Test
@@ -326,8 +326,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcGetBalance ethGetBalance = deserialiseResponse(OkcGetBalance.class);
-        assertThat(ethGetBalance.getBalance(), equalTo(BigInteger.valueOf(158972490234375000L)));
+        OkcGetBalance okcGetBalance = deserialiseResponse(OkcGetBalance.class);
+        assertThat(okcGetBalance.getBalance(), equalTo(BigInteger.valueOf(158972490234375000L)));
     }
 
     @Test
@@ -341,8 +341,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcGetStorageAt ethGetStorageAt = deserialiseResponse(OkcGetStorageAt.class);
-        assertThat(ethGetStorageAt.getResult(),
+        OkcGetStorageAt okcGetStorageAt = deserialiseResponse(OkcGetStorageAt.class);
+        assertThat(okcGetStorageAt.getResult(),
                 is("0x000000000000000000000000000000000000000000000000000000000000162e"));
     }
 
@@ -356,9 +356,9 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcGetTransactionCount ethGetTransactionCount =
+        OkcGetTransactionCount okcGetTransactionCount =
                 deserialiseResponse((OkcGetTransactionCount.class));
-        assertThat(ethGetTransactionCount.getTransactionCount(), equalTo(BigInteger.valueOf(1L)));
+        assertThat(okcGetTransactionCount.getTransactionCount(), equalTo(BigInteger.valueOf(1L)));
     }
 
     @Test
@@ -371,9 +371,9 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcGetBlockTransactionCountByHash ethGetBlockTransactionCountByHash =
+        OkcGetBlockTransactionCountByHash okcGetBlockTransactionCountByHash =
                 deserialiseResponse(OkcGetBlockTransactionCountByHash.class);
-        assertThat(ethGetBlockTransactionCountByHash.getTransactionCount(),
+        assertThat(okcGetBlockTransactionCountByHash.getTransactionCount(),
                 equalTo(BigInteger.valueOf(11)));
     }
 
@@ -387,9 +387,9 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcGetBlockTransactionCountByNumber ethGetBlockTransactionCountByNumber =
+        OkcGetBlockTransactionCountByNumber okcGetBlockTransactionCountByNumber =
                 deserialiseResponse(OkcGetBlockTransactionCountByNumber.class);
-        assertThat(ethGetBlockTransactionCountByNumber.getTransactionCount(),
+        assertThat(okcGetBlockTransactionCountByNumber.getTransactionCount(),
                 equalTo(BigInteger.valueOf(10)));
     }
 
@@ -403,9 +403,9 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcGetUncleCountByBlockHash ethGetUncleCountByBlockHash = deserialiseResponse(
+        OkcGetUncleCountByBlockHash okcGetUncleCountByBlockHash = deserialiseResponse(
                 OkcGetUncleCountByBlockHash.class);
-        assertThat(ethGetUncleCountByBlockHash.getUncleCount(),
+        assertThat(okcGetUncleCountByBlockHash.getUncleCount(),
                 equalTo(BigInteger.valueOf(1)));
     }
 
@@ -419,9 +419,9 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcGetUncleCountByBlockNumber ethGetUncleCountByBlockNumber = deserialiseResponse(
+        OkcGetUncleCountByBlockNumber okcGetUncleCountByBlockNumber = deserialiseResponse(
                 OkcGetUncleCountByBlockNumber.class);
-        assertThat(ethGetUncleCountByBlockNumber.getUncleCount(),
+        assertThat(okcGetUncleCountByBlockNumber.getUncleCount(),
                 equalTo(BigInteger.valueOf(1)));
     }
 
@@ -436,8 +436,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcGetCode ethGetCode = deserialiseResponse(OkcGetCode.class);
-        assertThat(ethGetCode.getCode(),
+        OkcGetCode okcGetCode = deserialiseResponse(OkcGetCode.class);
+        assertThat(okcGetCode.getCode(),
                 is("0x600160008035811a818181146012578301005b601b60013560255"
                         + "65b8060005260206000f25b600060078202905091905056"));
     }
@@ -454,8 +454,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcSign ethSign = deserialiseResponse(OkcSign.class);
-        assertThat(ethSign.getSignature(),
+        OkcSign okcSign = deserialiseResponse(OkcSign.class);
+        assertThat(okcSign.getSignature(),
                 is("0xbd685c98ec39490f50d15c67ba2a8e9b5b1d6d7601fca80b295e7d717446bd8b7127ea4871e9"
                         + "96cdc8cae7690408b4e800f60ddac49d2ad34180e68f1da0aaf001"));
     }
@@ -471,8 +471,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcSendTransaction ethSendTransaction = deserialiseResponse(OkcSendTransaction.class);
-        assertThat(ethSendTransaction.getTransactionHash(),
+        OkcSendTransaction okcSendTransaction = deserialiseResponse(OkcSendTransaction.class);
+        assertThat(okcSendTransaction.getTransactionHash(),
                 is("0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"));
     }
 
@@ -487,9 +487,9 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcSendRawTransaction ethSendRawTransaction =
+        OkcSendRawTransaction okcSendRawTransaction =
                 deserialiseResponse(OkcSendRawTransaction.class);
-        assertThat(ethSendRawTransaction.getTransactionHash(),
+        assertThat(okcSendRawTransaction.getTransactionHash(),
                 is("0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"));
     }
 
@@ -503,8 +503,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcCall ethCall = deserialiseResponse(OkcCall.class);
-        assertThat(ethCall.getValue(), is("0x"));
+        OkcCall okcCall = deserialiseResponse(OkcCall.class);
+        assertThat(okcCall.getValue(), is("0x"));
     }
 
     @Test
@@ -517,8 +517,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcEstimateGas ethEstimateGas = deserialiseResponse(OkcEstimateGas.class);
-        assertThat(ethEstimateGas.getAmountUsed(), equalTo(BigInteger.valueOf(21000)));
+        OkcEstimateGas okcEstimateGas = deserialiseResponse(OkcEstimateGas.class);
+        assertThat(okcEstimateGas.getAmountUsed(), equalTo(BigInteger.valueOf(21000)));
     }
 
     @Test
@@ -565,7 +565,7 @@ public class ResponseTest extends ResponseTester {
         );
         //CHECKSTYLE:ON
 
-        OkcBlock ethBlock = deserialiseResponse(OkcBlock.class);
+        OkcBlock okcBlock = deserialiseResponse(OkcBlock.class);
         OkcBlock.Block block = new OkcBlock.Block(
                 "0x1b4",
                 "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331",
@@ -602,7 +602,7 @@ public class ResponseTest extends ResponseTester {
                         "0x39a3eb432fbef1fc"
                 )
         );
-        assertThat(ethBlock.getBlock(), equalTo(block));
+        assertThat(okcBlock.getBlock(), equalTo(block));
     }
 
     @Test
@@ -664,7 +664,7 @@ public class ResponseTest extends ResponseTester {
         );
         //CHECKSTYLE:ON
 
-        OkcBlock ethBlock = deserialiseResponse(OkcBlock.class);
+        OkcBlock okcBlock = deserialiseResponse(OkcBlock.class);
         OkcBlock.Block block = new OkcBlock.Block(
                 "0x1b4",
                 "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331",
@@ -716,7 +716,7 @@ public class ResponseTest extends ResponseTester {
                         "0x39a3eb432fbef1fc"
                 )
         );
-        assertThat(ethBlock.getBlock(), equalTo(block));
+        assertThat(okcBlock.getBlock(), equalTo(block));
     }
 
     // Remove once Geth & Parity return the same v value in transactions
@@ -779,7 +779,7 @@ public class ResponseTest extends ResponseTester {
         );
         //CHECKSTYLE:ON
 
-        OkcBlock ethBlock = deserialiseResponse(OkcBlock.class);
+        OkcBlock okcBlock = deserialiseResponse(OkcBlock.class);
         OkcBlock.Block block = new OkcBlock.Block(
                 "0x1b4",
                 "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331",
@@ -831,7 +831,7 @@ public class ResponseTest extends ResponseTester {
                         "0x39a3eb432fbef1fc"
                 )
         );
-        assertThat(ethBlock.getBlock(), equalTo(block));
+        assertThat(okcBlock.getBlock(), equalTo(block));
     }
 
     @Test
@@ -842,8 +842,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcBlock ethBlock = deserialiseResponse(OkcBlock.class);
-        assertNull(ethBlock.getBlock());
+        OkcBlock okcBlock = deserialiseResponse(OkcBlock.class);
+        assertNull(okcBlock.getBlock());
     }
 
     @Test
@@ -987,9 +987,9 @@ public class ResponseTest extends ResponseTester {
                 );
         //CHECKSTYLE:ON
 
-        OkcGetTransactionReceipt ethGetTransactionReceipt = deserialiseResponse(
+        OkcGetTransactionReceipt okcGetTransactionReceipt = deserialiseResponse(
                 OkcGetTransactionReceipt.class);
-        assertThat(ethGetTransactionReceipt.getTransactionReceipt().get(),
+        assertThat(okcGetTransactionReceipt.getTransactionReceipt().get(),
                 equalTo(transactionReceipt));
     }
 
@@ -1062,9 +1062,9 @@ public class ResponseTest extends ResponseTester {
                 );
         //CHECKSTYLE:ON
 
-        OkcGetTransactionReceipt ethGetTransactionReceipt = deserialiseResponse(
+        OkcGetTransactionReceipt okcGetTransactionReceipt = deserialiseResponse(
                 OkcGetTransactionReceipt.class);
-        assertThat(ethGetTransactionReceipt.getTransactionReceipt().get(),
+        assertThat(okcGetTransactionReceipt.getTransactionReceipt().get(),
                 equalTo(transactionReceipt));
     }
 
@@ -1092,8 +1092,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcGetCompilers ethGetCompilers = deserialiseResponse(OkcGetCompilers.class);
-        assertThat(ethGetCompilers.getCompilers(), equalTo(Arrays.asList(
+        OkcGetCompilers okcGetCompilers = deserialiseResponse(OkcGetCompilers.class);
+        assertThat(okcGetCompilers.getCompilers(), equalTo(Arrays.asList(
                 "solidity", "lll", "serpent"
         )));
     }
@@ -1282,8 +1282,8 @@ public class ResponseTest extends ResponseTester {
                 )
         );
 
-        OkcLog ethLog = deserialiseResponse(OkcLog.class);
-        assertThat(ethLog.getLogs(), is(logs));
+        OkcLog okcLog = deserialiseResponse(OkcLog.class);
+        assertThat(okcLog.getLogs(), is(logs));
     }
 
     @Test
@@ -1302,12 +1302,12 @@ public class ResponseTest extends ResponseTester {
         );
         //CHECKSTYLE:ON
 
-        OkcGetWork ethGetWork = deserialiseResponse(OkcGetWork.class);
-        assertThat(ethGetWork.getCurrentBlockHeaderPowHash(),
+        OkcGetWork okcGetWork = deserialiseResponse(OkcGetWork.class);
+        assertThat(okcGetWork.getCurrentBlockHeaderPowHash(),
                 is("0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"));
-        assertThat(ethGetWork.getSeedHashForDag(),
+        assertThat(okcGetWork.getSeedHashForDag(),
                 is("0x5EED00000000000000000000000000005EED0000000000000000000000000000"));
-        assertThat(ethGetWork.getBoundaryCondition(),
+        assertThat(okcGetWork.getBoundaryCondition(),
                 is("0xd1ff1c01710000000000000000000000d1ff1c01710000000000000000000000"));
     }
 
@@ -1321,8 +1321,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcSubmitWork ethSubmitWork = deserialiseResponse(OkcSubmitWork.class);
-        assertThat(ethSubmitWork.solutionValid(), is(true));
+        OkcSubmitWork okcSubmitWork = deserialiseResponse(OkcSubmitWork.class);
+        assertThat(okcSubmitWork.solutionValid(), is(true));
     }
 
     @Test
@@ -1335,8 +1335,8 @@ public class ResponseTest extends ResponseTester {
                         + "}"
         );
 
-        OkcSubmitHashrate ethSubmitHashrate = deserialiseResponse(OkcSubmitHashrate.class);
-        assertThat(ethSubmitHashrate.submissionSuccessful(), is(true));
+        OkcSubmitHashrate okcSubmitHashrate = deserialiseResponse(OkcSubmitHashrate.class);
+        assertThat(okcSubmitHashrate.submissionSuccessful(), is(true));
     }
 
     @Test

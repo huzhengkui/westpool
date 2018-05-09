@@ -47,7 +47,7 @@ public abstract class FilterTester {
         web3j = Web3j.build(web3jService, 1000, scheduledExecutorService);
     }
 
-    <T> void runTest(OkcLog ethLog, Observable<T> observable) throws Exception {
+    <T> void runTest(OkcLog okcLog, Observable<T> observable) throws Exception {
         OkcFilter ethFilter = objectMapper.readValue(
                 "{\n"
                         + "  \"id\":1,\n"
@@ -59,7 +59,7 @@ public abstract class FilterTester {
                 "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":true}", OkcUninstallFilter.class);
 
         @SuppressWarnings("unchecked")
-        List<T> expected = createExpected(ethLog);
+        List<T> expected = createExpected(okcLog);
         Set<T> results = Collections.synchronizedSet(new HashSet<T>());
 
         CountDownLatch transactionLatch = new CountDownLatch(expected.size());
@@ -69,7 +69,7 @@ public abstract class FilterTester {
         when(web3jService.send(any(Request.class), eq(OkcFilter.class)))
                 .thenReturn(ethFilter);
         when(web3jService.send(any(Request.class), eq(OkcLog.class)))
-                .thenReturn(ethLog);
+                .thenReturn(okcLog);
         when(web3jService.send(any(Request.class), eq(OkcUninstallFilter.class)))
                 .thenReturn(ethUninstallFilter);
 
@@ -90,13 +90,13 @@ public abstract class FilterTester {
         assertTrue(subscription.isUnsubscribed());
     }
 
-    List createExpected(OkcLog ethLog) {
-        List<OkcLog.LogResult> logResults = ethLog.getLogs();
+    List createExpected(OkcLog okcLog) {
+        List<OkcLog.LogResult> logResults = okcLog.getLogs();
         if (logResults.isEmpty()) {
             fail("Results cannot be empty");
         }
 
-        return ethLog.getLogs().stream()
+        return okcLog.getLogs().stream()
                 .map(t -> t.get()).collect(Collectors.toList());
     }
 }

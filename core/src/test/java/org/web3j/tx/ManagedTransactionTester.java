@@ -37,36 +37,36 @@ public abstract class ManagedTransactionTester {
 
     @SuppressWarnings("unchecked")
     void prepareNonceRequest() throws IOException {
-        OkcGetTransactionCount ethGetTransactionCount = new OkcGetTransactionCount();
-        ethGetTransactionCount.setResult("0x1");
+        OkcGetTransactionCount okcGetTransactionCount = new OkcGetTransactionCount();
+        okcGetTransactionCount.setResult("0x1");
 
         Request<?, OkcGetTransactionCount> transactionCountRequest = mock(Request.class);
         when(transactionCountRequest.send())
-                .thenReturn(ethGetTransactionCount);
-        when(web3j.ethGetTransactionCount(SampleKeys.ADDRESS, DefaultBlockParameterName.PENDING))
+                .thenReturn(okcGetTransactionCount);
+        when(web3j.okcGetTransactionCount(SampleKeys.ADDRESS, DefaultBlockParameterName.PENDING))
                 .thenReturn((Request) transactionCountRequest);
     }
 
     @SuppressWarnings("unchecked")
     void prepareTransactionRequest() throws IOException {
-        OkcSendTransaction ethSendTransaction = new OkcSendTransaction();
-        ethSendTransaction.setResult(TRANSACTION_HASH);
+        OkcSendTransaction okcSendTransaction = new OkcSendTransaction();
+        okcSendTransaction.setResult(TRANSACTION_HASH);
 
         Request<?, OkcSendTransaction> rawTransactionRequest = mock(Request.class);
-        when(rawTransactionRequest.send()).thenReturn(ethSendTransaction);
-        when(web3j.ethSendRawTransaction(any(String.class)))
+        when(rawTransactionRequest.send()).thenReturn(okcSendTransaction);
+        when(web3j.okcSendRawTransaction(any(String.class)))
                 .thenReturn((Request) rawTransactionRequest);
     }
 
     @SuppressWarnings("unchecked")
     void prepareTransactionReceipt(TransactionReceipt transactionReceipt) throws IOException {
-        OkcGetTransactionReceipt ethGetTransactionReceipt = new OkcGetTransactionReceipt();
-        ethGetTransactionReceipt.setResult(transactionReceipt);
+        OkcGetTransactionReceipt okcGetTransactionReceipt = new OkcGetTransactionReceipt();
+        okcGetTransactionReceipt.setResult(transactionReceipt);
 
         Request<?, OkcGetTransactionReceipt> getTransactionReceiptRequest = mock(Request.class);
         when(getTransactionReceiptRequest.send())
-                .thenReturn(ethGetTransactionReceipt);
-        when(web3j.ethGetTransactionReceipt(TRANSACTION_HASH))
+                .thenReturn(okcGetTransactionReceipt);
+        when(web3j.okcGetTransactionReceipt(TRANSACTION_HASH))
                 .thenReturn((Request) getTransactionReceiptRequest);
     }
 }

@@ -67,10 +67,10 @@ public class RawTransactionManager extends TransactionManager {
     }
 
     protected BigInteger getNonce() throws IOException {
-        OkcGetTransactionCount ethGetTransactionCount = web3j.okcGetTransactionCount(
+        OkcGetTransactionCount okcGetTransactionCount = web3j.okcGetTransactionCount(
                 credentials.getAddress(), DefaultBlockParameterName.PENDING).send();
 
-        return ethGetTransactionCount.getTransactionCount();
+        return okcGetTransactionCount.getTransactionCount();
     }
 
     @Override

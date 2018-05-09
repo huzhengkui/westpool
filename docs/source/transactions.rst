@@ -174,7 +174,7 @@ Then you can unlock the account, and providing this was successful, send a trans
 
 
 Transactions for sending in this manner should be created via
-`EthSendTransaction <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/protocol/core/methods/response/EthSendTransaction.java>`_,
+`okcSendTransaction <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/protocol/core/methods/response/okcSendTransaction.java>`_,
 with the `Transaction <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/protocol/core/methods/request/Transaction.java>`_ type::
 
   Transaction transaction = Transaction.createContractTransaction(
@@ -184,13 +184,13 @@ with the `Transaction <https://github.com/web3j/web3j/blob/master/core/src/main/
                 "0x...<smart contract code to execute>"
         );
 
-        org.web3j.protocol.core.methods.response.EthSendTransaction
-                transactionResponse = parity.ethSendTransaction(ethSendTransaction)
+        org.web3j.protocol.core.methods.response.okcSendTransaction
+                transactionResponse = parity.okcSendTransaction(okcSendTransaction)
                 .send();
 
         String transactionHash = transactionResponse.getTransactionHash();
 
-        // poll for transaction response via org.web3j.protocol.Web3j.ethGetTransactionReceipt(<txHash>)
+        // poll for transaction response via org.web3j.protocol.Web3j.okcGetTransactionReceipt(<txHash>)
 
 Where the *<nonce>* value is obtained as per :ref:`below <nonce>`.
 
@@ -287,9 +287,9 @@ Where the credentials are those loaded as per :ref:`wallet-files`.
 
 The transaction is then sent using `eth_sendRawTransaction <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendrawtransaction>`_::
 
-   EthSendTransaction ethSendTransaction = web3j.ethSendRawTransaction(hexValue).sendAsync().get();
-   String transactionHash = ethSendTransaction.getTransactionHash();
-   // poll for transaction response via org.web3j.protocol.Web3j.ethGetTransactionReceipt(<txHash>)
+   okcSendTransaction okcSendTransaction = web3j.okcSendRawTransaction(hexValue).sendAsync().get();
+   String transactionHash = okcSendTransaction.getTransactionHash();
+   // poll for transaction response via org.web3j.protocol.Web3j.okcGetTransactionReceipt(<txHash>)
 
 
 Please refer to the integration test
@@ -309,10 +309,10 @@ a transaction with the same nonce, however, once mined, any subsequent submissio
 You can obtain the next available nonce via the
 `eth_getTransactionCount <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactioncount>`_ method::
 
-   EthGetTransactionCount ethGetTransactionCount = web3j.ethGetTransactionCount(
+   okcGetTransactionCount okcGetTransactionCount = web3j.okcGetTransactionCount(
                 address, DefaultBlockParameterName.LATEST).sendAsync().get();
 
-        BigInteger nonce = ethGetTransactionCount.getTransactionCount();
+        BigInteger nonce = okcGetTransactionCount.getTransactionCount();
 
 The nonce can then be used to create your transaction object::
 
@@ -411,8 +411,8 @@ To deploy a new smart contract, the following attributes will need to be provide
    // send...
 
    // get contract address
-   EthGetTransactionReceipt transactionReceipt =
-                web3j.ethGetTransactionReceipt(transactionHash).send();
+   okcGetTransactionReceipt transactionReceipt =
+                web3j.okcGetTransactionReceipt(transactionHash).send();
 
    if (transactionReceipt.getTransactionReceipt.isPresent()) {
        String contractAddress = transactionReceipt.get().getContractAddress();
@@ -471,12 +471,12 @@ to the :doc:`abi` section.
    Transaction transaction = Transaction.createFunctionCallTransaction(
                 <from>, <gasPrice>, <gasLimit>, contractAddress, <funds>, encodedFunction);
 
-   org.web3j.protocol.core.methods.response.EthSendTransaction transactionResponse =
-                web3j.ethSendTransaction(transaction).sendAsync().get();
+   org.web3j.protocol.core.methods.response.okcSendTransaction transactionResponse =
+                web3j.okcSendTransaction(transaction).sendAsync().get();
 
    String transactionHash = transactionResponse.getTransactionHash();
 
-   // wait for response using EthGetTransactionReceipt...
+   // wait for response using okcGetTransactionReceipt...
 
 It is not possible to return values from transactional functional calls, regardless of the return
 type of the message signature. However, it is possible to capture values returned by functions
@@ -501,8 +501,8 @@ contract method's called, it simply returns the value from them::
                 Arrays.asList(new TypeReference<Type>() {}, ...));
 
    String encodedFunction = FunctionEncoder.encode(function)
-   org.web3j.protocol.core.methods.response.EthCall response = web3j.ethCall(
-                Transaction.createEthCallTransaction(<from>, contractAddress, encodedFunction),
+   org.web3j.protocol.core.methods.response.okcCall response = web3j.okcCall(
+                Transaction.createokcCallTransaction(<from>, contractAddress, encodedFunction),
                 DefaultBlockParameterName.LATEST)
                 .sendAsync().get();
 

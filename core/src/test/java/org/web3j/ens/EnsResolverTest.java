@@ -143,11 +143,11 @@ public class EnsResolverTest {
     private void configureLatestBlock(long timestamp) throws IOException {
         OkcBlock.Block block = new OkcBlock.Block();
         block.setTimestamp(Numeric.encodeQuantity(BigInteger.valueOf(timestamp)));
-        OkcBlock ethBlock = new OkcBlock();
-        ethBlock.setResult(block);
+        OkcBlock okcBlock = new OkcBlock();
+        okcBlock.setResult(block);
 
         when(web3jService.send(any(Request.class), eq(OkcBlock.class)))
-                .thenReturn(ethBlock);
+                .thenReturn(okcBlock);
     }
 
     @Test

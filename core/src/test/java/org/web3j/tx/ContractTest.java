@@ -168,10 +168,10 @@ public class ContractTest extends ManagedTransactionTester {
     public void testCallSingleValue() throws Exception {
         // Example taken from FunctionReturnDecoderTest
 
-        OkcCall ethCall = new OkcCall();
-        ethCall.setResult("0x0000000000000000000000000000000000000000000000000000000000000020"
+        OkcCall okcCall = new OkcCall();
+        okcCall.setResult("0x0000000000000000000000000000000000000000000000000000000000000020"
                 + "0000000000000000000000000000000000000000000000000000000000000000");
-        prepareCall(ethCall);
+        prepareCall(okcCall);
 
         assertThat(contract.callSingleValue().send(), equalTo(new Utf8String("")));
     }
@@ -180,19 +180,19 @@ public class ContractTest extends ManagedTransactionTester {
     public void testCallSingleValueEmpty() throws Exception {
         // Example taken from FunctionReturnDecoderTest
 
-        OkcCall ethCall = new OkcCall();
-        ethCall.setResult("0x");
-        prepareCall(ethCall);
+        OkcCall okcCall = new OkcCall();
+        okcCall.setResult("0x");
+        prepareCall(okcCall);
 
         assertNull(contract.callSingleValue().send());
     }
 
     @Test
     public void testCallMultipleValue() throws Exception {
-        OkcCall ethCall = new OkcCall();
-        ethCall.setResult("0x0000000000000000000000000000000000000000000000000000000000000037"
+        OkcCall okcCall = new OkcCall();
+        okcCall.setResult("0x0000000000000000000000000000000000000000000000000000000000000037"
                 + "0000000000000000000000000000000000000000000000000000000000000007");
-        prepareCall(ethCall);
+        prepareCall(okcCall);
 
         assertThat(contract.callMultipleValue().send(),
                 equalTo(Arrays.asList(
@@ -202,20 +202,20 @@ public class ContractTest extends ManagedTransactionTester {
 
     @Test
     public void testCallMultipleValueEmpty() throws Exception {
-        OkcCall ethCall = new OkcCall();
-        ethCall.setResult("0x");
-        prepareCall(ethCall);
+        OkcCall okcCall = new OkcCall();
+        okcCall.setResult("0x");
+        prepareCall(okcCall);
 
         assertThat(contract.callMultipleValue().send(),
                 equalTo(emptyList()));
     }
 
     @SuppressWarnings("unchecked")
-    private void prepareCall(OkcCall ethCall) throws IOException {
+    private void prepareCall(OkcCall okcCall) throws IOException {
         Request<?, OkcCall> request = mock(Request.class);
-        when(request.send()).thenReturn(ethCall);
+        when(request.send()).thenReturn(okcCall);
 
-        when(web3j.ethCall(any(Transaction.class), eq(DefaultBlockParameterName.LATEST)))
+        when(web3j.okcCall(any(Transaction.class), eq(DefaultBlockParameterName.LATEST)))
                 .thenReturn((Request) request);
     }
 
@@ -290,12 +290,12 @@ public class ContractTest extends ManagedTransactionTester {
     public void testInvalidTransactionResponse() throws Throwable {
         prepareNonceRequest();
 
-        OkcSendTransaction ethSendTransaction = new OkcSendTransaction();
-        ethSendTransaction.setError(new Response.Error(1, "Invalid transaction"));
+        OkcSendTransaction okcSendTransaction = new OkcSendTransaction();
+        okcSendTransaction.setError(new Response.Error(1, "Invalid transaction"));
 
         Request<?, OkcSendTransaction> rawTransactionRequest = mock(Request.class);
-        when(rawTransactionRequest.sendAsync()).thenReturn(Async.run(() -> ethSendTransaction));
-        when(web3j.ethSendRawTransaction(any(String.class)))
+        when(rawTransactionRequest.sendAsync()).thenReturn(Async.run(() -> okcSendTransaction));
+        when(web3j.okcSendRawTransaction(any(String.class)))
                 .thenReturn((Request) rawTransactionRequest);
 
         testErrorScenario();
@@ -341,13 +341,13 @@ public class ContractTest extends ManagedTransactionTester {
         prepareNonceRequest();
         prepareTransactionRequest();
 
-        OkcGetTransactionReceipt ethGetTransactionReceipt = new OkcGetTransactionReceipt();
-        ethGetTransactionReceipt.setError(new Response.Error(1, "Invalid transaction receipt"));
+        OkcGetTransactionReceipt okcGetTransactionReceipt = new OkcGetTransactionReceipt();
+        okcGetTransactionReceipt.setError(new Response.Error(1, "Invalid transaction receipt"));
 
         Request<?, OkcGetTransactionReceipt> getTransactionReceiptRequest = mock(Request.class);
         when(getTransactionReceiptRequest.sendAsync())
-                .thenReturn(Async.run(() -> ethGetTransactionReceipt));
-        when(web3j.ethGetTransactionReceipt(TRANSACTION_HASH))
+                .thenReturn(Async.run(() -> okcGetTransactionReceipt));
+        when(web3j.okcGetTransactionReceipt(TRANSACTION_HASH))
                 .thenReturn((Request) getTransactionReceiptRequest);
 
         testErrorScenario();
@@ -431,14 +431,14 @@ public class ContractTest extends ManagedTransactionTester {
 
     @SuppressWarnings("unchecked")
     private void prepareOkcGetCode(String binary) throws IOException {
-        OkcGetCode ethGetCode = new OkcGetCode();
-        ethGetCode.setResult(Numeric.prependHexPrefix(binary));
+        OkcGetCode okcGetCode = new OkcGetCode();
+        okcGetCode.setResult(Numeric.prependHexPrefix(binary));
 
-        Request<?, OkcGetCode> ethGetCodeRequest = mock(Request.class);
-        when(ethGetCodeRequest.send())
-                .thenReturn(ethGetCode);
-        when(web3j.ethGetCode(ADDRESS, DefaultBlockParameterName.LATEST))
-                .thenReturn((Request) ethGetCodeRequest);
+        Request<?, OkcGetCode> okcGetCodeRequest = mock(Request.class);
+        when(okcGetCodeRequest.send())
+                .thenReturn(okcGetCode);
+        when(web3j.okcGetCode(ADDRESS, DefaultBlockParameterName.LATEST))
+                .thenReturn((Request) okcGetCodeRequest);
     }
 
     private static class TestContract extends Contract {

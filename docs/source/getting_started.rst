@@ -214,7 +214,7 @@ Topic filters are also supported::
    EthFilter filter = new EthFilter(DefaultBlockParameterName.EARLIEST,
            DefaultBlockParameterName.LATEST, <contract-address>)
                 .addSingleTopic(...)|.addOptionalTopics(..., ...)|...;
-   web3j.ethLogObservable(filter).subscribe(log -> {
+   web3j.okcLogObservable(filter).subscribe(log -> {
        ...
    });
 
@@ -250,9 +250,9 @@ Or if you wish to create your own custom transaction::
    Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
 
    // get the next available nonce
-   EthGetTransactionCount ethGetTransactionCount = web3j.ethGetTransactionCount(
+   okcGetTransactionCount okcGetTransactionCount = web3j.okcGetTransactionCount(
                 address, DefaultBlockParameterName.LATEST).send();
-   BigInteger nonce = ethGetTransactionCount.getTransactionCount();
+   BigInteger nonce = okcGetTransactionCount.getTransactionCount();
 
    // create our transaction
    RawTransaction rawTransaction  = RawTransaction.createEtherTransaction(
@@ -261,7 +261,7 @@ Or if you wish to create your own custom transaction::
    // sign & send our transaction
    byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, credentials);
    String hexValue = Numeric.toHexString(signedMessage);
-   EthSendTransaction ethSendTransaction = web3j.ethSendRawTransaction(hexValue).send();
+   okcSendTransaction okcSendTransaction = web3j.okcSendRawTransaction(hexValue).send();
    // ...
 
 Although it's far simpler using web3j's `Transfer <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/tx/Transfer.java>`_

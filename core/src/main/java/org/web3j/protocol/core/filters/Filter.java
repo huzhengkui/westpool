@@ -88,14 +88,14 @@ public abstract class Filter<T> {
     private void getInitialFilterLogs() {
         try {
             Optional<Request<?, OkcLog>> maybeRequest = this.getFilterLogs(this.filterId);
-            OkcLog ethLog = null;
+            OkcLog okcLog = null;
             if (maybeRequest.isPresent()) {
-                ethLog = maybeRequest.get().send();
+                okcLog = maybeRequest.get().send();
             } else {
-                ethLog = new OkcLog();
-                ethLog.setResult(Collections.emptyList());
+                okcLog = new OkcLog();
+                okcLog.setResult(Collections.emptyList());
             }
-            process(ethLog.getLogs());
+            process(okcLog.getLogs());
 
         } catch (IOException e) {
             throwException(e);
@@ -103,16 +103,16 @@ public abstract class Filter<T> {
     }
 
     private void pollFilter(OkcFilter ethFilter) {
-        OkcLog ethLog = null;
+        OkcLog okcLog = null;
         try {
-            ethLog = web3j.okcGetFilterChanges(filterId).send();
+            okcLog = web3j.okcGetFilterChanges(filterId).send();
         } catch (IOException e) {
             throwException(e);
         }
-        if (ethLog.hasError()) {
-            throwException(ethLog.getError());
+        if (okcLog.hasError()) {
+            throwException(okcLog.getError());
         } else {
-            process(ethLog.getLogs());
+            process(okcLog.getLogs());
         }
     }
 

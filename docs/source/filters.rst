@@ -139,7 +139,7 @@ on. Where the individual topics represent indexed parameters on the smart contra
 
 This filter can then be created using a similar syntax to the block and transaction filters above::
 
-   web3j.ethLogObservable(filter).subscribe(log -> {
+   web3j.okcLogObservable(filter).subscribe(log -> {
        ...
    });
 
@@ -163,15 +163,15 @@ For instance, the
 `blockObservable <https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/protocol/rx/JsonRpc2_0Rx.java>`_ is
 itself composed of a number of separate JSON-RPC calls::
 
-   public Observable<EthBlock> blockObservable(
+   public Observable<okcBlock> blockObservable(
            boolean fullTransactionObjects, long pollingInterval) {
-       return this.ethBlockHashObservable(pollingInterval)
+       return this.okcBlockHashObservable(pollingInterval)
                .flatMap(blockHash ->
-                       web3j.ethGetBlockByHash(blockHash, fullTransactionObjects).observable());
+                       web3j.okcGetBlockByHash(blockHash, fullTransactionObjects).observable());
    }
 
 Here we first create an observable that provides notifications of the block hash of each newly
-created block. We then use *flatMap* to invoke a call to *ethGetBlockByHash* to obtain the full
+created block. We then use *flatMap* to invoke a call to *okcGetBlockByHash* to obtain the full
 block details which is what is passed to the subscriber of the observable.
 
 

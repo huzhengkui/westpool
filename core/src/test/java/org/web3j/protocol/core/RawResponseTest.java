@@ -38,9 +38,9 @@ public class RawResponseTest extends ResponseTester {
 
         buildResponse(LARGE_RAW_RESPONSE);
 
-        OkcBlock ethBlock = deserialiseResponse(OkcBlock.class);
+        OkcBlock okcBlock = deserialiseResponse(OkcBlock.class);
 
-        assertThat(ethBlock.getRawResponse(), is(LARGE_RAW_RESPONSE));
+        assertThat(okcBlock.getRawResponse(), is(LARGE_RAW_RESPONSE));
     }
 
     @Test

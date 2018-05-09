@@ -52,12 +52,12 @@ public class JsonRpc2_0RxTest {
     @Test
     public void testReplayBlocksObservable() throws Exception {
 
-        List<OkcBlock> ethBlocks = Arrays.asList(createBlock(0), createBlock(1), createBlock(2));
+        List<OkcBlock> okcBlocks = Arrays.asList(createBlock(0), createBlock(1), createBlock(2));
 
         OngoingStubbing<OkcBlock> stubbing =
                 when(web3jService.send(any(Request.class), eq(OkcBlock.class)));
-        for (OkcBlock ethBlock : ethBlocks) {
-            stubbing = stubbing.thenReturn(ethBlock);
+        for (OkcBlock okcBlock : okcBlocks) {
+            stubbing = stubbing.thenReturn(okcBlock);
         }
 
         Observable<OkcBlock> observable = web3j.replayBlocksObservable(
@@ -65,10 +65,10 @@ public class JsonRpc2_0RxTest {
                 new DefaultBlockParameterNumber(BigInteger.valueOf(2)),
                 false);
 
-        CountDownLatch transactionLatch = new CountDownLatch(ethBlocks.size());
+        CountDownLatch transactionLatch = new CountDownLatch(okcBlocks.size());
         CountDownLatch completedLatch = new CountDownLatch(1);
 
-        List<OkcBlock> results = new ArrayList<>(ethBlocks.size());
+        List<OkcBlock> results = new ArrayList<>(okcBlocks.size());
         Subscription subscription = observable.subscribe(
                 result -> {
                     results.add(result);
@@ -78,7 +78,7 @@ public class JsonRpc2_0RxTest {
                 () -> completedLatch.countDown());
 
         transactionLatch.await(1, TimeUnit.SECONDS);
-        assertThat(results, equalTo(ethBlocks));
+        assertThat(results, equalTo(okcBlocks));
 
         subscription.unsubscribe();
 
@@ -89,12 +89,12 @@ public class JsonRpc2_0RxTest {
     @Test
     public void testReplayBlocksDescendingObservable() throws Exception {
 
-        List<OkcBlock> ethBlocks = Arrays.asList(createBlock(2), createBlock(1), createBlock(0));
+        List<OkcBlock> okcBlocks = Arrays.asList(createBlock(2), createBlock(1), createBlock(0));
 
         OngoingStubbing<OkcBlock> stubbing =
                 when(web3jService.send(any(Request.class), eq(OkcBlock.class)));
-        for (OkcBlock ethBlock : ethBlocks) {
-            stubbing = stubbing.thenReturn(ethBlock);
+        for (OkcBlock okcBlock : okcBlocks) {
+            stubbing = stubbing.thenReturn(okcBlock);
         }
 
         Observable<OkcBlock> observable = web3j.replayBlocksObservable(
@@ -102,10 +102,10 @@ public class JsonRpc2_0RxTest {
                 new DefaultBlockParameterNumber(BigInteger.valueOf(2)),
                 false, false);
 
-        CountDownLatch transactionLatch = new CountDownLatch(ethBlocks.size());
+        CountDownLatch transactionLatch = new CountDownLatch(okcBlocks.size());
         CountDownLatch completedLatch = new CountDownLatch(1);
 
-        List<OkcBlock> results = new ArrayList<>(ethBlocks.size());
+        List<OkcBlock> results = new ArrayList<>(okcBlocks.size());
         Subscription subscription = observable.subscribe(
                 result -> {
                     results.add(result);
@@ -115,7 +115,7 @@ public class JsonRpc2_0RxTest {
                 () -> completedLatch.countDown());
 
         transactionLatch.await(1, TimeUnit.SECONDS);
-        assertThat(results, equalTo(ethBlocks));
+        assertThat(results, equalTo(okcBlocks));
 
         subscription.unsubscribe();
 
@@ -130,19 +130,19 @@ public class JsonRpc2_0RxTest {
                 createBlock(3), createBlock(4), createBlock(5),
                 createBlock(6));
 
-        List<OkcBlock> ethBlocks = Arrays.asList(
+        List<OkcBlock> okcBlocks = Arrays.asList(
                 expected.get(2),  // greatest block
                 expected.get(0), expected.get(1), expected.get(2),
                 expected.get(4), // greatest block
                 expected.get(3), expected.get(4),
                 expected.get(4),  // greatest block
-                expected.get(5),  // initial response from ethGetFilterLogs call
+                expected.get(5),  // initial response from okcGetFilterLogs call
                 expected.get(6)); // subsequent block from new block observable
 
         OngoingStubbing<OkcBlock> stubbing =
                 when(web3jService.send(any(Request.class), eq(OkcBlock.class)));
-        for (OkcBlock ethBlock : ethBlocks) {
-            stubbing = stubbing.thenReturn(ethBlock);
+        for (OkcBlock okcBlock : okcBlocks) {
+            stubbing = stubbing.thenReturn(okcBlock);
         }
 
         OkcFilter ethFilter = objectMapper.readValue(
@@ -151,7 +151,7 @@ public class JsonRpc2_0RxTest {
                         + "  \"jsonrpc\": \"2.0\",\n"
                         + "  \"result\": \"0x1\"\n"
                         + "}", OkcFilter.class);
-        OkcLog ethLog = objectMapper.readValue(
+        OkcLog okcLog = objectMapper.readValue(
                 "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":["
                         + "\"0x31c2342b1e0b8ffda1507fbffddf213c4b3c1e819ff6a84b943faabb0ebf2403\""
                         + "]}",
@@ -162,7 +162,7 @@ public class JsonRpc2_0RxTest {
         when(web3jService.send(any(Request.class), eq(OkcFilter.class)))
                 .thenReturn(ethFilter);
         when(web3jService.send(any(Request.class), eq(OkcLog.class)))
-                .thenReturn(ethLog);
+                .thenReturn(okcLog);
         when(web3jService.send(any(Request.class), eq(OkcUninstallFilter.class)))
                 .thenReturn(ethUninstallFilter);
 
@@ -192,11 +192,11 @@ public class JsonRpc2_0RxTest {
     }
 
     private OkcBlock createBlock(int number) {
-        OkcBlock ethBlock = new OkcBlock();
+        OkcBlock okcBlock = new OkcBlock();
         OkcBlock.Block block = new OkcBlock.Block();
         block.setNumber(Numeric.encodeQuantity(BigInteger.valueOf(number)));
 
-        ethBlock.setResult(block);
-        return ethBlock;
+        okcBlock.setResult(block);
+        return okcBlock;
     }
 }

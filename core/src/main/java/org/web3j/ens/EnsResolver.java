@@ -140,9 +140,9 @@ public class EnsResolver {
         if (okcSyncing.isSyncing()) {
             return false;
         } else {
-            OkcBlock ethBlock =
+            OkcBlock okcBlock =
                     web3j.okcGetBlockByNumber(DefaultBlockParameterName.LATEST, false).send();
-            long timestamp = ethBlock.getBlock().getTimestamp().longValueExact() * 1000;
+            long timestamp = okcBlock.getBlock().getTimestamp().longValueExact() * 1000;
 
             return System.currentTimeMillis() - syncThreshold < timestamp;
         }

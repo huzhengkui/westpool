@@ -17,8 +17,8 @@ always returns a blank value, indicating the transaction has not been mined::
 
    // you loop through the following expecting to eventually get a receipt once the transaction
    // is mined
-   EthGetTransactionReceipt.TransactionReceipt transactionReceipt =
-           web3j.ethGetTransactionReceipt(transactionHash).sendAsync().get();
+   okcGetTransactionReceipt.TransactionReceipt transactionReceipt =
+           web3j.okcGetTransactionReceipt(transactionHash).sendAsync().get();
 
    if (!transactionReceipt.isPresent()) {
        // try again, ad infinitum
@@ -92,9 +92,9 @@ of the transaction. This is demonstrated below::
    byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, ALICE);
    String hexValue = Numeric.toHexString(signedMessage);
 
-   EthSendTransaction ethSendTransaction =
-           web3j.ethSendRawTransaction(hexValue).send();
-   String transactionHash = ethSendTransaction.getTransactionHash();
+   okcSendTransaction okcSendTransaction =
+           web3j.okcSendRawTransaction(hexValue).send();
+   String transactionHash = okcSendTransaction.getTransactionHash();
    ...
 
 *Note*: Please ensure you increase the gas limit on the transaction to allow for the storage of
