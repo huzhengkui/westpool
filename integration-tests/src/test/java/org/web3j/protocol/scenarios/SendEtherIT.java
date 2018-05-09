@@ -6,7 +6,7 @@ import java.math.BigInteger;
 import org.junit.Test;
 
 import org.web3j.protocol.core.methods.request.Transaction;
-import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.core.methods.response.OkcSendTransaction;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.tx.Transfer;
 import org.web3j.utils.Convert;
@@ -16,24 +16,24 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * Simple integration test to demonstrate sending of Ether between parties.
+ * Simple integration test to demonstrate sending of Okcer between parties.
  */
-public class SendEtherIT extends Scenario {
+public class SendOkcerIT extends Scenario {
 
     @Test
-    public void testTransferEther() throws Exception {
+    public void testTransferOkcer() throws Exception {
         unlockAccount();
 
         BigInteger nonce = getNonce(ALICE.getAddress());
         BigInteger value = Convert.toWei("0.5", Convert.Unit.ETHER).toBigInteger();
 
-        Transaction transaction = Transaction.createEtherTransaction(
+        Transaction transaction = Transaction.createOkcerTransaction(
                 ALICE.getAddress(), nonce, GAS_PRICE, GAS_LIMIT, BOB.getAddress(), value);
 
-        EthSendTransaction ethSendTransaction =
-                web3j.ethSendTransaction(transaction).sendAsync().get();
+        OkcSendTransaction okcSendTransaction =
+                web3j.okcSendTransaction(transaction).sendAsync().get();
 
-        String transactionHash = ethSendTransaction.getTransactionHash();
+        String transactionHash = okcSendTransaction.getTransactionHash();
 
         assertFalse(transactionHash.isEmpty());
 

@@ -8,35 +8,35 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.core.methods.response.EthAccounts;
-import org.web3j.protocol.core.methods.response.EthBlock;
-import org.web3j.protocol.core.methods.response.EthBlockNumber;
-import org.web3j.protocol.core.methods.response.EthCall;
-import org.web3j.protocol.core.methods.response.EthCoinbase;
-import org.web3j.protocol.core.methods.response.EthCompileLLL;
-import org.web3j.protocol.core.methods.response.EthCompileSerpent;
-import org.web3j.protocol.core.methods.response.EthCompileSolidity;
-import org.web3j.protocol.core.methods.response.EthEstimateGas;
-import org.web3j.protocol.core.methods.response.EthFilter;
-import org.web3j.protocol.core.methods.response.EthGasPrice;
-import org.web3j.protocol.core.methods.response.EthGetBalance;
-import org.web3j.protocol.core.methods.response.EthGetBlockTransactionCountByHash;
-import org.web3j.protocol.core.methods.response.EthGetBlockTransactionCountByNumber;
-import org.web3j.protocol.core.methods.response.EthGetCode;
-import org.web3j.protocol.core.methods.response.EthGetCompilers;
-import org.web3j.protocol.core.methods.response.EthGetStorageAt;
-import org.web3j.protocol.core.methods.response.EthGetTransactionCount;
-import org.web3j.protocol.core.methods.response.EthGetTransactionReceipt;
-import org.web3j.protocol.core.methods.response.EthGetUncleCountByBlockHash;
-import org.web3j.protocol.core.methods.response.EthGetUncleCountByBlockNumber;
-import org.web3j.protocol.core.methods.response.EthHashrate;
-import org.web3j.protocol.core.methods.response.EthLog;
-import org.web3j.protocol.core.methods.response.EthMining;
-import org.web3j.protocol.core.methods.response.EthProtocolVersion;
-import org.web3j.protocol.core.methods.response.EthSendTransaction;
-import org.web3j.protocol.core.methods.response.EthSyncing;
-import org.web3j.protocol.core.methods.response.EthTransaction;
-import org.web3j.protocol.core.methods.response.EthUninstallFilter;
+import org.web3j.protocol.core.methods.response.OkcAccounts;
+import org.web3j.protocol.core.methods.response.OkcBlock;
+import org.web3j.protocol.core.methods.response.OkcBlockNumber;
+import org.web3j.protocol.core.methods.response.OkcCall;
+import org.web3j.protocol.core.methods.response.OkcCoinbase;
+import org.web3j.protocol.core.methods.response.OkcCompileLLL;
+import org.web3j.protocol.core.methods.response.OkcCompileSerpent;
+import org.web3j.protocol.core.methods.response.OkcCompileSolidity;
+import org.web3j.protocol.core.methods.response.OkcEstimateGas;
+import org.web3j.protocol.core.methods.response.OkcFilter;
+import org.web3j.protocol.core.methods.response.OkcGasPrice;
+import org.web3j.protocol.core.methods.response.OkcGetBalance;
+import org.web3j.protocol.core.methods.response.OkcGetBlockTransactionCountByHash;
+import org.web3j.protocol.core.methods.response.OkcGetBlockTransactionCountByNumber;
+import org.web3j.protocol.core.methods.response.OkcGetCode;
+import org.web3j.protocol.core.methods.response.OkcGetCompilers;
+import org.web3j.protocol.core.methods.response.OkcGetStorageAt;
+import org.web3j.protocol.core.methods.response.OkcGetTransactionCount;
+import org.web3j.protocol.core.methods.response.OkcGetTransactionReceipt;
+import org.web3j.protocol.core.methods.response.OkcGetUncleCountByBlockHash;
+import org.web3j.protocol.core.methods.response.OkcGetUncleCountByBlockNumber;
+import org.web3j.protocol.core.methods.response.OkcHashrate;
+import org.web3j.protocol.core.methods.response.OkcLog;
+import org.web3j.protocol.core.methods.response.OkcMining;
+import org.web3j.protocol.core.methods.response.OkcProtocolVersion;
+import org.web3j.protocol.core.methods.response.OkcSendTransaction;
+import org.web3j.protocol.core.methods.response.OkcSyncing;
+import org.web3j.protocol.core.methods.response.OkcTransaction;
+import org.web3j.protocol.core.methods.response.OkcUninstallFilter;
 import org.web3j.protocol.core.methods.response.NetListening;
 import org.web3j.protocol.core.methods.response.NetPeerCount;
 import org.web3j.protocol.core.methods.response.NetVersion;
@@ -76,7 +76,7 @@ public class CoreIT {
     public void testWeb3ClientVersion() throws Exception {
         Web3ClientVersion web3ClientVersion = web3j.web3ClientVersion().send();
         String clientVersion = web3ClientVersion.getWeb3ClientVersion();
-        System.out.println("Ethereum client version: " + clientVersion);
+        System.out.println("Okcereum client version: " + clientVersion);
         assertFalse(clientVersion.isEmpty());
     }
 
@@ -106,369 +106,369 @@ public class CoreIT {
     }
 
     @Test
-    public void testEthProtocolVersion() throws Exception {
-        EthProtocolVersion ethProtocolVersion = web3j.ethProtocolVersion().send();
-        assertFalse(ethProtocolVersion.getProtocolVersion().isEmpty());
+    public void testOkcProtocolVersion() throws Exception {
+        OkcProtocolVersion okcProtocolVersion = web3j.okcProtocolVersion().send();
+        assertFalse(okcProtocolVersion.getProtocolVersion().isEmpty());
     }
 
     @Test
-    public void testEthSyncing() throws Exception {
-        EthSyncing okcSyncing = web3j.okcSyncing().send();
+    public void testOkcSyncing() throws Exception {
+        OkcSyncing okcSyncing = web3j.okcSyncing().send();
         assertNotNull(okcSyncing.getResult());
     }
 
     @Test
-    public void testEthCoinbase() throws Exception {
-        EthCoinbase ethCoinbase = web3j.ethCoinbase().send();
-        assertNotNull(ethCoinbase.getAddress());
+    public void testOkcCoinbase() throws Exception {
+        OkcCoinbase okcCoinbase = web3j.okcCoinbase().send();
+        assertNotNull(okcCoinbase.getAddress());
     }
 
     @Test
-    public void testEthMining() throws Exception {
-        EthMining ethMining = web3j.ethMining().send();
-        assertNotNull(ethMining.getResult());
+    public void testOkcMining() throws Exception {
+        OkcMining okcMining = web3j.okcMining().send();
+        assertNotNull(okcMining.getResult());
     }
 
     @Test
-    public void testEthHashrate() throws Exception {
-        EthHashrate ethHashrate = web3j.ethHashrate().send();
-        assertThat(ethHashrate.getHashrate(), is(BigInteger.ZERO));
+    public void testOkcHashrate() throws Exception {
+        OkcHashrate okcHashrate = web3j.okcHashrate().send();
+        assertThat(okcHashrate.gokcashrate(), is(BigInteger.ZERO));
     }
 
     @Test
-    public void testEthGasPrice() throws Exception {
-        EthGasPrice ethGasPrice = web3j.ethGasPrice().send();
-        assertTrue(ethGasPrice.getGasPrice().signum() == 1);
+    public void testOkcGasPrice() throws Exception {
+        OkcGasPrice okcGasPrice = web3j.okcGasPrice().send();
+        assertTrue(okcGasPrice.getGasPrice().signum() == 1);
     }
 
     @Test
-    public void testEthAccounts() throws Exception {
-        EthAccounts ethAccounts = web3j.ethAccounts().send();
-        assertNotNull(ethAccounts.getAccounts());
+    public void testOkcAccounts() throws Exception {
+        OkcAccounts okcAccounts = web3j.okcAccounts().send();
+        assertNotNull(okcAccounts.getAccounts());
     }
 
     @Test
-    public void testEthBlockNumber() throws Exception {
-        EthBlockNumber ethBlockNumber = web3j.ethBlockNumber().send();
-        assertTrue(ethBlockNumber.getBlockNumber().signum() == 1);
+    public void testOkcBlockNumber() throws Exception {
+        OkcBlockNumber okcBlockNumber = web3j.okcBlockNumber().send();
+        assertTrue(okcBlockNumber.getBlockNumber().signum() == 1);
     }
 
     @Test
-    public void testEthGetBalance() throws Exception {
-        EthGetBalance ethGetBalance = web3j.ethGetBalance(
+    public void testOkcGetBalance() throws Exception {
+        OkcGetBalance okcGetBalance = web3j.okcGetBalance(
                 config.validAccount(), DefaultBlockParameter.valueOf("latest")).send();
-        assertTrue(ethGetBalance.getBalance().signum() == 1);
+        assertTrue(okcGetBalance.getBalance().signum() == 1);
     }
 
     @Test
-    public void testEthGetStorageAt() throws Exception {
-        EthGetStorageAt ethGetStorageAt = web3j.ethGetStorageAt(
+    public void testOkcGetStorageAt() throws Exception {
+        OkcGetStorageAt okcGetStorageAt = web3j.okcGetStorageAt(
                 config.validContractAddress(),
                 BigInteger.valueOf(0),
                 DefaultBlockParameter.valueOf("latest")).send();
-        assertThat(ethGetStorageAt.getData(), is(config.validContractAddressPositionZero()));
+        assertThat(okcGetStorageAt.getData(), is(config.validContractAddressPositionZero()));
     }
 
     @Test
-    public void testEthGetTransactionCount() throws Exception {
-        EthGetTransactionCount ethGetTransactionCount = web3j.ethGetTransactionCount(
+    public void testOkcGetTransactionCount() throws Exception {
+        OkcGetTransactionCount okcGetTransactionCount = web3j.okcGetTransactionCount(
                 config.validAccount(),
                 DefaultBlockParameter.valueOf("latest")).send();
-        assertTrue(ethGetTransactionCount.getTransactionCount().signum() == 1);
+        assertTrue(okcGetTransactionCount.getTransactionCount().signum() == 1);
     }
 
     @Test
-    public void testEthGetBlockTransactionCountByHash() throws Exception {
-        EthGetBlockTransactionCountByHash ethGetBlockTransactionCountByHash =
-                web3j.ethGetBlockTransactionCountByHash(
+    public void testOkcGetBlockTransactionCountByHash() throws Exception {
+        OkcGetBlockTransactionCountByHash okcGetBlockTransactionCountByHash =
+                web3j.okcGetBlockTransactionCountByHash(
                         config.validBlockHash()).send();
-        assertThat(ethGetBlockTransactionCountByHash.getTransactionCount(),
+        assertThat(okcGetBlockTransactionCountByHash.getTransactionCount(),
                 equalTo(config.validBlockTransactionCount()));
     }
 
     @Test
-    public void testEthGetBlockTransactionCountByNumber() throws Exception {
-        EthGetBlockTransactionCountByNumber ethGetBlockTransactionCountByNumber =
-                web3j.ethGetBlockTransactionCountByNumber(
+    public void testOkcGetBlockTransactionCountByNumber() throws Exception {
+        OkcGetBlockTransactionCountByNumber okcGetBlockTransactionCountByNumber =
+                web3j.okcGetBlockTransactionCountByNumber(
                         DefaultBlockParameter.valueOf(config.validBlock())).send();
-        assertThat(ethGetBlockTransactionCountByNumber.getTransactionCount(),
+        assertThat(okcGetBlockTransactionCountByNumber.getTransactionCount(),
                 equalTo(config.validBlockTransactionCount()));
     }
 
     @Test
-    public void testEthGetUncleCountByBlockHash() throws Exception {
-        EthGetUncleCountByBlockHash ethGetUncleCountByBlockHash =
-                web3j.ethGetUncleCountByBlockHash(config.validBlockHash()).send();
-        assertThat(ethGetUncleCountByBlockHash.getUncleCount(),
+    public void testOkcGetUncleCountByBlockHash() throws Exception {
+        OkcGetUncleCountByBlockHash okcGetUncleCountByBlockHash =
+                web3j.okcGetUncleCountByBlockHash(config.validBlockHash()).send();
+        assertThat(okcGetUncleCountByBlockHash.getUncleCount(),
                 equalTo(config.validBlockUncleCount()));
     }
 
     @Test
-    public void testEthGetUncleCountByBlockNumber() throws Exception {
-        EthGetUncleCountByBlockNumber ethGetUncleCountByBlockNumber =
-                web3j.ethGetUncleCountByBlockNumber(
+    public void testOkcGetUncleCountByBlockNumber() throws Exception {
+        OkcGetUncleCountByBlockNumber okcGetUncleCountByBlockNumber =
+                web3j.okcGetUncleCountByBlockNumber(
                         DefaultBlockParameter.valueOf("latest")).send();
-        assertThat(ethGetUncleCountByBlockNumber.getUncleCount(),
+        assertThat(okcGetUncleCountByBlockNumber.getUncleCount(),
                 equalTo(config.validBlockUncleCount()));
     }
 
     @Test
-    public void testEthGetCode() throws Exception {
-        EthGetCode ethGetCode = web3j.ethGetCode(config.validContractAddress(),
+    public void testOkcGetCode() throws Exception {
+        OkcGetCode okcGetCode = web3j.okcGetCode(config.validContractAddress(),
                 DefaultBlockParameter.valueOf(config.validBlock())).send();
-        assertThat(ethGetCode.getCode(), is(config.validContractCode()));
+        assertThat(okcGetCode.getCode(), is(config.validContractCode()));
     }
 
     @Ignore  // TODO: Once account unlock functionality is available
     @Test
-    public void testEthSign() throws Exception {
-        // EthSign ethSign = web3j.ethSign();
+    public void testOkcSign() throws Exception {
+        // OkcSign okcSign = web3j.okcSign();
     }
 
     @Ignore  // TODO: Once account unlock functionality is available
     @Test
-    public void testEthSendTransaction() throws Exception {
-        EthSendTransaction ethSendTransaction = web3j.ethSendTransaction(
+    public void testOkcSendTransaction() throws Exception {
+        OkcSendTransaction okcSendTransaction = web3j.okcSendTransaction(
                 config.buildTransaction()).send();
-        assertFalse(ethSendTransaction.getTransactionHash().isEmpty());
+        assertFalse(okcSendTransaction.getTransactionHash().isEmpty());
     }
 
     @Ignore  // TODO: Once account unlock functionality is available
     @Test
-    public void testEthSendRawTransaction() throws Exception {
+    public void testOkcSendRawTransaction() throws Exception {
 
     }
 
     @Test
-    public void testEthCall() throws Exception {
-        EthCall ethCall = web3j.ethCall(config.buildTransaction(),
+    public void testOkcCall() throws Exception {
+        OkcCall okcCall = web3j.okcCall(config.buildTransaction(),
                 DefaultBlockParameter.valueOf("latest")).send();
 
         assertThat(DefaultBlockParameterName.LATEST.getValue(), is("latest"));
-        assertThat(ethCall.getValue(), is("0x"));
+        assertThat(okcCall.getValue(), is("0x"));
     }
 
     @Test
-    public void testEthEstimateGas() throws Exception {
-        EthEstimateGas ethEstimateGas = web3j.ethEstimateGas(config.buildTransaction())
+    public void testOkcEstimateGas() throws Exception {
+        OkcEstimateGas okcEstimateGas = web3j.okcEstimateGas(config.buildTransaction())
                 .send();
-        assertTrue(ethEstimateGas.getAmountUsed().signum() == 1);
+        assertTrue(okcEstimateGas.getAmountUsed().signum() == 1);
     }
 
     @Test
-    public void testEthGetBlockByHashReturnHashObjects() throws Exception {
-        EthBlock ethBlock = web3j.ethGetBlockByHash(config.validBlockHash(), false)
+    public void testOkcGetBlockByHashReturnHashObjects() throws Exception {
+        OkcBlock okcBlock = web3j.okcGetBlockByHash(config.validBlockHash(), false)
                 .send();
 
-        EthBlock.Block block = ethBlock.getBlock();
-        assertNotNull(ethBlock.getBlock());
+        OkcBlock.Block block = okcBlock.getBlock();
+        assertNotNull(okcBlock.getBlock());
         assertThat(block.getNumber(), equalTo(config.validBlock()));
         assertThat(block.getTransactions().size(),
                 is(config.validBlockTransactionCount().intValue()));
     }
 
     @Test
-    public void testEthGetBlockByHashReturnFullTransactionObjects() throws Exception {
-        EthBlock ethBlock = web3j.ethGetBlockByHash(config.validBlockHash(), true)
+    public void testOkcGetBlockByHashReturnFullTransactionObjects() throws Exception {
+        OkcBlock okcBlock = web3j.okcGetBlockByHash(config.validBlockHash(), true)
                 .send();
 
-        EthBlock.Block block = ethBlock.getBlock();
-        assertNotNull(ethBlock.getBlock());
+        OkcBlock.Block block = okcBlock.getBlock();
+        assertNotNull(okcBlock.getBlock());
         assertThat(block.getNumber(), equalTo(config.validBlock()));
         assertThat(block.getTransactions().size(),
                 equalTo(config.validBlockTransactionCount().intValue()));
     }
 
     @Test
-    public void testEthGetBlockByNumberReturnHashObjects() throws Exception {
-        EthBlock ethBlock = web3j.okcGetBlockByNumber(
+    public void testOkcGetBlockByNumberReturnHashObjects() throws Exception {
+        OkcBlock okcBlock = web3j.okcGetBlockByNumber(
                 DefaultBlockParameter.valueOf(config.validBlock()), false).send();
 
-        EthBlock.Block block = ethBlock.getBlock();
-        assertNotNull(ethBlock.getBlock());
+        OkcBlock.Block block = okcBlock.getBlock();
+        assertNotNull(okcBlock.getBlock());
         assertThat(block.getNumber(), equalTo(config.validBlock()));
         assertThat(block.getTransactions().size(),
                 equalTo(config.validBlockTransactionCount().intValue()));
     }
 
     @Test
-    public void testEthGetBlockByNumberReturnTransactionObjects() throws Exception {
-        EthBlock ethBlock = web3j.okcGetBlockByNumber(
+    public void testOkcGetBlockByNumberReturnTransactionObjects() throws Exception {
+        OkcBlock okcBlock = web3j.okcGetBlockByNumber(
                 DefaultBlockParameter.valueOf(config.validBlock()), true).send();
 
-        EthBlock.Block block = ethBlock.getBlock();
-        assertNotNull(ethBlock.getBlock());
+        OkcBlock.Block block = okcBlock.getBlock();
+        assertNotNull(okcBlock.getBlock());
         assertThat(block.getNumber(), equalTo(config.validBlock()));
         assertThat(block.getTransactions().size(),
                 equalTo(config.validBlockTransactionCount().intValue()));
     }
 
     @Test
-    public void testEthGetTransactionByHash() throws Exception {
-        EthTransaction ethTransaction = web3j.ethGetTransactionByHash(
+    public void testOkcGetTransactionByHash() throws Exception {
+        OkcTransaction okcTransaction = web3j.okcGetTransactionByHash(
                 config.validTransactionHash()).send();
-        assertTrue(ethTransaction.getTransaction().isPresent());
-        Transaction transaction = ethTransaction.getTransaction().get();
+        assertTrue(okcTransaction.getTransaction().isPresent());
+        Transaction transaction = okcTransaction.getTransaction().get();
         assertThat(transaction.getBlockHash(), is(config.validBlockHash()));
     }
 
     @Test
-    public void testEthGetTransactionByBlockHashAndIndex() throws Exception {
+    public void testOkcGetTransactionByBlockHashAndIndex() throws Exception {
         BigInteger index = BigInteger.ONE;
 
-        EthTransaction ethTransaction = web3j.ethGetTransactionByBlockHashAndIndex(
+        OkcTransaction okcTransaction = web3j.okcGetTransactionByBlockHashAndIndex(
                 config.validBlockHash(), index).send();
-        assertTrue(ethTransaction.getTransaction().isPresent());
-        Transaction transaction = ethTransaction.getTransaction().get();
+        assertTrue(okcTransaction.getTransaction().isPresent());
+        Transaction transaction = okcTransaction.getTransaction().get();
         assertThat(transaction.getBlockHash(), is(config.validBlockHash()));
         assertThat(transaction.getTransactionIndex(), equalTo(index));
     }
 
     @Test
-    public void testEthGetTransactionByBlockNumberAndIndex() throws Exception {
+    public void testOkcGetTransactionByBlockNumberAndIndex() throws Exception {
         BigInteger index = BigInteger.ONE;
 
-        EthTransaction ethTransaction = web3j.ethGetTransactionByBlockNumberAndIndex(
+        OkcTransaction okcTransaction = web3j.okcGetTransactionByBlockNumberAndIndex(
                 DefaultBlockParameter.valueOf(config.validBlock()), index).send();
-        assertTrue(ethTransaction.getTransaction().isPresent());
-        Transaction transaction = ethTransaction.getTransaction().get();
+        assertTrue(okcTransaction.getTransaction().isPresent());
+        Transaction transaction = okcTransaction.getTransaction().get();
         assertThat(transaction.getBlockHash(), is(config.validBlockHash()));
         assertThat(transaction.getTransactionIndex(), equalTo(index));
     }
 
     @Test
-    public void testEthGetTransactionReceipt() throws Exception {
-        EthGetTransactionReceipt ethGetTransactionReceipt = web3j.ethGetTransactionReceipt(
+    public void testOkcGetTransactionReceipt() throws Exception {
+        OkcGetTransactionReceipt okcGetTransactionReceipt = web3j.okcGetTransactionReceipt(
                 config.validTransactionHash()).send();
-        assertTrue(ethGetTransactionReceipt.getTransactionReceipt().isPresent());
+        assertTrue(okcGetTransactionReceipt.getTransactionReceipt().isPresent());
         TransactionReceipt transactionReceipt =
-                ethGetTransactionReceipt.getTransactionReceipt().get();
+                okcGetTransactionReceipt.getTransactionReceipt().get();
         assertThat(transactionReceipt.getTransactionHash(), is(config.validTransactionHash()));
     }
 
     @Test
-    public void testEthGetUncleByBlockHashAndIndex() throws Exception {
-        EthBlock ethBlock = web3j.ethGetUncleByBlockHashAndIndex(
+    public void testOkcGetUncleByBlockHashAndIndex() throws Exception {
+        OkcBlock okcBlock = web3j.okcGetUncleByBlockHashAndIndex(
                 config.validUncleBlockHash(), BigInteger.ZERO).send();
-        assertNotNull(ethBlock.getBlock());
+        assertNotNull(okcBlock.getBlock());
     }
 
     @Test
-    public void testEthGetUncleByBlockNumberAndIndex() throws Exception {
-        EthBlock ethBlock = web3j.ethGetUncleByBlockNumberAndIndex(
+    public void testOkcGetUncleByBlockNumberAndIndex() throws Exception {
+        OkcBlock okcBlock = web3j.okcGetUncleByBlockNumberAndIndex(
                 DefaultBlockParameter.valueOf(config.validUncleBlock()), BigInteger.ZERO)
                 .send();
-        assertNotNull(ethBlock.getBlock());
+        assertNotNull(okcBlock.getBlock());
     }
 
     @Test
-    public void testEthGetCompilers() throws Exception {
-        EthGetCompilers ethGetCompilers = web3j.ethGetCompilers().send();
-        assertNotNull(ethGetCompilers.getCompilers());
+    public void testOkcGetCompilers() throws Exception {
+        OkcGetCompilers okcGetCompilers = web3j.okcGetCompilers().send();
+        assertNotNull(okcGetCompilers.getCompilers());
     }
 
-    @Ignore  // The method eth_compileLLL does not exist/is not available
+    @Ignore  // The method okc_compileLLL does not exist/is not available
     @Test
-    public void testEthCompileLLL() throws Exception {
-        EthCompileLLL ethCompileLLL = web3j.ethCompileLLL(
+    public void testOkcCompileLLL() throws Exception {
+        OkcCompileLLL okcCompileLLL = web3j.okcCompileLLL(
                 "(returnlll (suicide (caller)))").send();
-        assertFalse(ethCompileLLL.getCompiledSourceCode().isEmpty());
+        assertFalse(okcCompileLLL.getCompiledSourceCode().isEmpty());
     }
 
     @Test
-    public void testEthCompileSolidity() throws Exception {
+    public void testOkcCompileSolidity() throws Exception {
         String sourceCode = "pragma solidity ^0.4.0;"
                 + "\ncontract test { function multiply(uint a) returns(uint d) {"
                 + "   return a * 7;   } }"
                 + "\ncontract test2 { function multiply2(uint a) returns(uint d) {"
                 + "   return a * 7;   } }";
-        EthCompileSolidity ethCompileSolidity = web3j.ethCompileSolidity(sourceCode)
+        OkcCompileSolidity okcCompileSolidity = web3j.okcCompileSolidity(sourceCode)
                 .send();
-        assertNotNull(ethCompileSolidity.getCompiledSolidity());
+        assertNotNull(okcCompileSolidity.getCompiledSolidity());
         assertThat(
-                ethCompileSolidity.getCompiledSolidity().get("test2").getInfo().getSource(),
+                okcCompileSolidity.getCompiledSolidity().get("test2").getInfo().getSource(),
                 is(sourceCode));
     }
 
-    @Ignore  // The method eth_compileSerpent does not exist/is not available
+    @Ignore  // The method okc_compileSerpent does not exist/is not available
     @Test
-    public void testEthCompileSerpent() throws Exception {
-        EthCompileSerpent ethCompileSerpent = web3j.ethCompileSerpent(
+    public void testOkcCompileSerpent() throws Exception {
+        OkcCompileSerpent okcCompileSerpent = web3j.okcCompileSerpent(
                 "/* some serpent */").send();
-        assertFalse(ethCompileSerpent.getCompiledSourceCode().isEmpty());
+        assertFalse(okcCompileSerpent.getCompiledSourceCode().isEmpty());
     }
 
     @Test
     public void testFiltersByFilterId() throws Exception {
-        org.web3j.protocol.core.methods.request.EthFilter ethFilter =
-                new org.web3j.protocol.core.methods.request.EthFilter(
+        org.web3j.protocol.core.methods.request.OkcFilter okcFilter =
+                new org.web3j.protocol.core.methods.request.OkcFilter(
                 DefaultBlockParameterName.EARLIEST,
                 DefaultBlockParameterName.LATEST,
                 config.validContractAddress());
 
         String eventSignature = config.encodedEvent();
-        ethFilter.addSingleTopic(eventSignature);
+        okcFilter.addSingleTopic(eventSignature);
 
-        // eth_newFilter
-        EthFilter ethNewFilter = web3j.ethNewFilter(ethFilter).send();
-        BigInteger filterId = ethNewFilter.getFilterId();
+        // okc_newFilter
+        OkcFilter okcNewFilter = web3j.okcNewFilter(okcFilter).send();
+        BigInteger filterId = okcNewFilter.getFilterId();
 
-        // eth_getFilterLogs
-        EthLog ethFilterLogs = web3j.ethGetFilterLogs(filterId).send();
-        List<EthLog.LogResult> filterLogs = ethFilterLogs.getLogs();
+        // okc_getFilterLogs
+        OkcLog okcFilterLogs = web3j.okcGetFilterLogs(filterId).send();
+        List<OkcLog.LogResult> filterLogs = okcFilterLogs.getLogs();
         assertFalse(filterLogs.isEmpty());
 
-        // eth_getFilterChanges - nothing will have changed in this interval
-        EthLog ethLog = web3j.ethGetFilterChanges(filterId).send();
-        assertTrue(ethLog.getLogs().isEmpty());
+        // okc_getFilterChanges - nothing will have changed in this interval
+        OkcLog okcLog = web3j.okcGetFilterChanges(filterId).send();
+        assertTrue(okcLog.getLogs().isEmpty());
 
-        // eth_uninstallFilter
-        EthUninstallFilter ethUninstallFilter = web3j.ethUninstallFilter(filterId).send();
-        assertTrue(ethUninstallFilter.isUninstalled());
+        // okc_uninstallFilter
+        OkcUninstallFilter okcUninstallFilter = web3j.okcUninstallFilter(filterId).send();
+        assertTrue(okcUninstallFilter.isUninstalled());
     }
 
     @Test
-    public void testEthNewBlockFilter() throws Exception {
-        EthFilter ethNewBlockFilter = web3j.ethNewBlockFilter().send();
-        assertNotNull(ethNewBlockFilter.getFilterId());
+    public void testOkcNewBlockFilter() throws Exception {
+        OkcFilter okcNewBlockFilter = web3j.okcNewBlockFilter().send();
+        assertNotNull(okcNewBlockFilter.getFilterId());
     }
 
     @Test
-    public void testEthNewPendingTransactionFilter() throws Exception {
-        EthFilter ethNewPendingTransactionFilter =
-                web3j.ethNewPendingTransactionFilter().send();
-        assertNotNull(ethNewPendingTransactionFilter.getFilterId());
+    public void testOkcNewPendingTransactionFilter() throws Exception {
+        OkcFilter okcNewPendingTransactionFilter =
+                web3j.okcNewPendingTransactionFilter().send();
+        assertNotNull(okcNewPendingTransactionFilter.getFilterId());
     }
 
     @Test
-    public void testEthGetLogs() throws Exception {
-        org.web3j.protocol.core.methods.request.EthFilter ethFilter =
-                new org.web3j.protocol.core.methods.request.EthFilter(
+    public void testOkcGetLogs() throws Exception {
+        org.web3j.protocol.core.methods.request.OkcFilter okcFilter =
+                new org.web3j.protocol.core.methods.request.OkcFilter(
                 DefaultBlockParameterName.EARLIEST,
                 DefaultBlockParameterName.LATEST,
                 config.validContractAddress()
         );
 
-        ethFilter.addSingleTopic(config.encodedEvent());
+        okcFilter.addSingleTopic(config.encodedEvent());
 
-        EthLog ethLog = web3j.ethGetLogs(ethFilter).send();
-        List<EthLog.LogResult> logs = ethLog.getLogs();
+        OkcLog okcLog = web3j.okcGetLogs(okcFilter).send();
+        List<OkcLog.LogResult> logs = okcLog.getLogs();
         assertFalse(logs.isEmpty());
     }
 
     // @Test
-    // public void testEthGetWork() throws Exception {
-    //     EthGetWork ethGetWork = requestFactory.ethGetWork();
-    //     assertNotNull(ethGetWork.getResult());
+    // public void testOkcGetWork() throws Exception {
+    //     OkcGetWork okcGetWork = requestFactory.okcGetWork();
+    //     assertNotNull(okcGetWork.getResult());
     // }
 
     @Test
-    public void testEthSubmitWork() throws Exception {
+    public void testOkcSubmitWork() throws Exception {
 
     }
 
     @Test
-    public void testEthSubmitHashrate() throws Exception {
+    public void testOkcSubmitHashrate() throws Exception {
     
     }
 
@@ -488,7 +488,7 @@ public class CoreIT {
     }
 
     @Test
-    public void testDbGetHex() throws Exception {
+    public void testDbGokcex() throws Exception {
     
     }
 

@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.web3j.crypto.RawTransaction;
 import org.web3j.crypto.TransactionEncoder;
 import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.response.EthGetTransactionCount;
-import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.core.methods.response.OkcGetTransactionCount;
+import org.web3j.protocol.core.methods.response.OkcSendTransaction;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.utils.Convert;
 import org.web3j.utils.Numeric;
@@ -23,17 +23,17 @@ import static org.junit.Assert.assertThat;
 public class CreateRawTransactionIT extends Scenario {
 
     @Test
-    public void testTransferEther() throws Exception {
+    public void testTransferOkcer() throws Exception {
         BigInteger nonce = getNonce(ALICE.getAddress());
-        RawTransaction rawTransaction = createEtherTransaction(
+        RawTransaction rawTransaction = createOkcerTransaction(
                 nonce, BOB.getAddress());
 
         byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, ALICE);
         String hexValue = Numeric.toHexString(signedMessage);
 
-        EthSendTransaction ethSendTransaction =
-                web3j.ethSendRawTransaction(hexValue).sendAsync().get();
-        String transactionHash = ethSendTransaction.getTransactionHash();
+        OkcSendTransaction okcSendTransaction =
+                web3j.okcSendRawTransaction(hexValue).sendAsync().get();
+        String transactionHash = okcSendTransaction.getTransactionHash();
 
         assertFalse(transactionHash.isEmpty());
 
@@ -51,9 +51,9 @@ public class CreateRawTransactionIT extends Scenario {
         byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, ALICE);
         String hexValue = Numeric.toHexString(signedMessage);
 
-        EthSendTransaction ethSendTransaction =
-                web3j.ethSendRawTransaction(hexValue).sendAsync().get();
-        String transactionHash = ethSendTransaction.getTransactionHash();
+        OkcSendTransaction okcSendTransaction =
+                web3j.okcSendRawTransaction(hexValue).sendAsync().get();
+        String transactionHash = okcSendTransaction.getTransactionHash();
 
         assertFalse(transactionHash.isEmpty());
 
@@ -66,10 +66,10 @@ public class CreateRawTransactionIT extends Scenario {
                 rawTransaction.getGasLimit().equals(transactionReceipt.getGasUsed()));
     }
 
-    private static RawTransaction createEtherTransaction(BigInteger nonce, String toAddress) {
+    private static RawTransaction createOkcerTransaction(BigInteger nonce, String toAddress) {
         BigInteger value = Convert.toWei("0.5", Convert.Unit.ETHER).toBigInteger();
 
-        return RawTransaction.createEtherTransaction(
+        return RawTransaction.createOkcerTransaction(
                 nonce, GAS_PRICE, GAS_LIMIT, toAddress, value);
     }
 
@@ -80,9 +80,9 @@ public class CreateRawTransactionIT extends Scenario {
     }
 
     BigInteger getNonce(String address) throws Exception {
-        EthGetTransactionCount ethGetTransactionCount = web3j.ethGetTransactionCount(
+        OkcGetTransactionCount okcGetTransactionCount = web3j.okcGetTransactionCount(
                 address, DefaultBlockParameterName.LATEST).sendAsync().get();
 
-        return ethGetTransactionCount.getTransactionCount();
+        return okcGetTransactionCount.getTransactionCount();
     }
 }

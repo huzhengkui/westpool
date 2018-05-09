@@ -19,7 +19,7 @@ import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameter;
 import org.web3j.protocol.core.RemoteCall;
-import org.web3j.protocol.core.methods.request.EthFilter;
+import org.web3j.protocol.core.methods.request.OkcFilter;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.tx.Contract;
@@ -197,8 +197,8 @@ public class HumanStandardToken extends Contract {
         return responses;
     }
 
-    public Observable<TransferEventResponse> transferEventObservable(EthFilter filter) {
-        return web3j.ethLogObservable(filter).map(new Func1<Log, TransferEventResponse>() {
+    public Observable<TransferEventResponse> transferEventObservable(OkcFilter filter) {
+        return web3j.okcLogObservable(filter).map(new Func1<Log, TransferEventResponse>() {
             @Override
             public TransferEventResponse call(Log log) {
                 Contract.EventValuesWithLog eventValues = extractEventParametersWithLog(TRANSFER_EVENT, log);
@@ -213,7 +213,7 @@ public class HumanStandardToken extends Contract {
     }
 
     public Observable<TransferEventResponse> transferEventObservable(DefaultBlockParameter startBlock, DefaultBlockParameter endBlock) {
-        EthFilter filter = new EthFilter(startBlock, endBlock, getContractAddress());
+        OkcFilter filter = new OkcFilter(startBlock, endBlock, getContractAddress());
         filter.addSingleTopic(EventEncoder.encode(TRANSFER_EVENT));
         return transferEventObservable(filter);
     }
@@ -232,8 +232,8 @@ public class HumanStandardToken extends Contract {
         return responses;
     }
 
-    public Observable<ApprovalEventResponse> approvalEventObservable(EthFilter filter) {
-        return web3j.ethLogObservable(filter).map(new Func1<Log, ApprovalEventResponse>() {
+    public Observable<ApprovalEventResponse> approvalEventObservable(OkcFilter filter) {
+        return web3j.okcLogObservable(filter).map(new Func1<Log, ApprovalEventResponse>() {
             @Override
             public ApprovalEventResponse call(Log log) {
                 Contract.EventValuesWithLog eventValues = extractEventParametersWithLog(APPROVAL_EVENT, log);
@@ -248,7 +248,7 @@ public class HumanStandardToken extends Contract {
     }
 
     public Observable<ApprovalEventResponse> approvalEventObservable(DefaultBlockParameter startBlock, DefaultBlockParameter endBlock) {
-        EthFilter filter = new EthFilter(startBlock, endBlock, getContractAddress());
+        OkcFilter filter = new OkcFilter(startBlock, endBlock, getContractAddress());
         filter.addSingleTopic(EventEncoder.encode(APPROVAL_EVENT));
         return approvalEventObservable(filter);
     }

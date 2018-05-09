@@ -67,8 +67,8 @@ public class DeployContractIT extends Scenario {
                 BigInteger.ZERO,
                 getFibonacciSolidityBinary());
 
-        org.web3j.protocol.core.methods.response.EthSendTransaction
-                transactionResponse = web3j.ethSendTransaction(transaction)
+        org.web3j.protocol.core.methods.response.OkcSendTransaction
+                transactionResponse = web3j.okcSendTransaction(transaction)
                 .sendAsync().get();
 
         return transactionResponse.getTransactionHash();
@@ -79,8 +79,8 @@ public class DeployContractIT extends Scenario {
 
         String encodedFunction = FunctionEncoder.encode(function);
 
-        org.web3j.protocol.core.methods.response.EthCall response = web3j.ethCall(
-                Transaction.createEthCallTransaction(
+        org.web3j.protocol.core.methods.response.OkcCall response = web3j.okcCall(
+                Transaction.createOkcCallTransaction(
                         ALICE.getAddress(), contractAddress, encodedFunction),
                 DefaultBlockParameterName.LATEST)
                 .sendAsync().get();

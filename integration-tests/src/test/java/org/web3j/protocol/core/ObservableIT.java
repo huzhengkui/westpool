@@ -10,8 +10,8 @@ import rx.Observable;
 import rx.Subscription;
 
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.core.methods.request.EthFilter;
-import org.web3j.protocol.core.methods.response.EthBlock;
+import org.web3j.protocol.core.methods.request.OkcFilter;
+import org.web3j.protocol.core.methods.response.OkcBlock;
 import org.web3j.protocol.http.HttpService;
 
 import static org.junit.Assert.assertTrue;
@@ -48,7 +48,7 @@ public class ObservableIT {
 
     @Test
     public void testLogObservable() throws Exception {
-        run(web3j.ethLogObservable(new EthFilter()));
+        run(web3j.okcLogObservable(new OkcFilter()));
     }
 
     @Test
@@ -60,9 +60,9 @@ public class ObservableIT {
 
     @Test
     public void testCatchUpToLatestAndSubscribeToNewBlocksObservable() throws Exception {
-        EthBlock ethBlock = web3j.okcGetBlockByNumber(DefaultBlockParameterName.LATEST, false)
+        OkcBlock okcBlock = web3j.okcGetBlockByNumber(DefaultBlockParameterName.LATEST, false)
                 .send();
-        BigInteger latestBlockNumber = ethBlock.getBlock().getNumber();
+        BigInteger latestBlockNumber = okcBlock.getBlock().getNumber();
         run(web3j.catchUpToLatestAndSubscribeToNewBlocksObservable(
                 new DefaultBlockParameterNumber(latestBlockNumber.subtract(BigInteger.ONE)),
                 false));
