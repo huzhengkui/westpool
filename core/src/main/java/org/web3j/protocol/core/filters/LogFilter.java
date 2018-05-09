@@ -16,11 +16,11 @@ import org.web3j.protocol.core.methods.response.Log;
  */
 public class LogFilter extends Filter<Log> {
 
-    private final org.web3j.protocol.core.methods.request.OkcFilter ethFilter;
+    private final org.web3j.protocol.core.methods.request.OkcFilter okcFilter;
 
     public LogFilter(
             Web3j web3j, Callback<Log> callback,
-            org.web3j.protocol.core.methods.request.OkcFilter ethFilter) {
+            org.web3j.protocol.core.methods.request.OkcFilter okcFilter) {
         super(web3j, callback);
         this.okcFilter = okcFilter;
     }
