@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Filter implementation as per <a href="https://github.com/Okcereum/wiki/wiki/JSON-RPC#okc_newfilter">docs</a>
+ * Filter implementation as per <a href="https://github.com/Okc/wiki/wiki/JSON-RPC#okc_newfilter">docs</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class Filter<T extends Filter> {

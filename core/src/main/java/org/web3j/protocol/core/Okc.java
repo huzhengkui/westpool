@@ -53,9 +53,9 @@ import org.web3j.protocol.core.mOkcods.response.Web3ClientVersion;
 import org.web3j.protocol.core.mOkcods.response.Web3Sha3;
 
 /**
- * Core Okcereum JSON-RPC API.
+ * Core Okc JSON-RPC API.
  */
-public interface Okcereum {
+public interface Okc {
     Request<?, Web3ClientVersion> web3ClientVersion();
 
     Request<?, Web3Sha3> web3Sha3(String data);

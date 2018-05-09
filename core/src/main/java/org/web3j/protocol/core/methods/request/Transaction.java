@@ -16,7 +16,7 @@ import org.web3j.utils.Numeric;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Transaction {
-    // default as per https://github.com/Okcereum/wiki/wiki/JSON-RPC#okc_sendtransaction
+    // default as per https://github.com/Okc/wiki/wiki/JSON-RPC#okc_sendtransaction
     public static final BigInteger DEFAULT_GAS = BigInteger.valueOf(9000);
 
     private String from;

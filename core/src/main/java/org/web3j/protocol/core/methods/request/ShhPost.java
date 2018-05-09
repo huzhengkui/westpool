@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import org.web3j.utils.Numeric;
 
 /**
- * https://github.com/Okcereum/wiki/wiki/JSON-RPC#shh_post
+ * https://github.com/Okc/wiki/wiki/JSON-RPC#shh_post
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ShhPost {
