@@ -5,7 +5,7 @@ import java.math.BigInteger;
 
 import org.web3j.ens.EnsResolver;
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.core.methods.response.EthGasPrice;
+import org.web3j.protocol.core.methods.response.OkcGasPrice;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.exceptions.TransactionException;
 
@@ -75,7 +75,7 @@ public abstract class ManagedTransaction {
      * @throws IOException if there's a problem communicating with the ethereum node
      */
     public BigInteger requestCurrentGasPrice() throws IOException {
-        EthGasPrice ethGasPrice = web3j.ethGasPrice().send();
+        OkcGasPrice ethGasPrice = web3j.ethGasPrice().send();
 
         return ethGasPrice.getGasPrice();
     }

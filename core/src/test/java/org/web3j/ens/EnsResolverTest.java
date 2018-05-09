@@ -13,9 +13,9 @@ import org.web3j.protocol.Web3j;
 import org.web3j.protocol.Web3jService;
 import org.web3j.protocol.core.JsonRpc2_0Web3j;
 import org.web3j.protocol.core.Request;
-import org.web3j.protocol.core.methods.response.EthBlock;
-import org.web3j.protocol.core.methods.response.EthCall;
-import org.web3j.protocol.core.methods.response.EthSyncing;
+import org.web3j.protocol.core.methods.response.OkcBlock;
+import org.web3j.protocol.core.methods.response.OkcCall;
+import org.web3j.protocol.core.methods.response.OkcSyncing;
 import org.web3j.protocol.core.methods.response.NetVersion;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.ChainId;
@@ -58,17 +58,17 @@ public class EnsResolverTest {
         String contractAddress =
                 "0x00000000000000000000000019e03255f667bdfd50a32722df860b1eeaf4d635";
 
-        EthCall resolverAddressResponse = new EthCall();
+        OkcCall resolverAddressResponse = new OkcCall();
         resolverAddressResponse.setResult(resolverAddress);
 
-        EthCall contractAddressResponse = new EthCall();
+        OkcCall contractAddressResponse = new OkcCall();
         contractAddressResponse.setResult(contractAddress);
 
         when(web3jService.send(any(Request.class), eq(NetVersion.class)))
                 .thenReturn(netVersion);
-        when(web3jService.send(any(Request.class), eq(EthCall.class)))
+        when(web3jService.send(any(Request.class), eq(OkcCall.class)))
                 .thenReturn(resolverAddressResponse);
-        when(web3jService.send(any(Request.class), eq(EthCall.class)))
+        when(web3jService.send(any(Request.class), eq(OkcCall.class)))
                 .thenReturn(contractAddressResponse);
 
         assertThat(ensResolver.resolve("web3j.eth"),
@@ -90,17 +90,17 @@ public class EnsResolverTest {
                 + TypeEncoder.encode(new Utf8String("web3j.eth"));
         System.err.println(contractName);
 
-        EthCall resolverAddressResponse = new EthCall();
+        OkcCall resolverAddressResponse = new OkcCall();
         resolverAddressResponse.setResult(resolverAddress);
 
-        EthCall contractNameResponse = new EthCall();
+        OkcCall contractNameResponse = new OkcCall();
         contractNameResponse.setResult(contractName);
 
         when(web3jService.send(any(Request.class), eq(NetVersion.class)))
                 .thenReturn(netVersion);
-        when(web3jService.send(any(Request.class), eq(EthCall.class)))
+        when(web3jService.send(any(Request.class), eq(OkcCall.class)))
                 .thenReturn(resolverAddressResponse);
-        when(web3jService.send(any(Request.class), eq(EthCall.class)))
+        when(web3jService.send(any(Request.class), eq(OkcCall.class)))
                 .thenReturn(contractNameResponse);
 
         assertThat(ensResolver.reverseResolve("0x19e03255f667bdfd50a32722df860b1eeaf4d635"),
@@ -131,22 +131,22 @@ public class EnsResolverTest {
     }
 
     private void configureSyncing(boolean isSyncing) throws IOException {
-        EthSyncing ethSyncing = new EthSyncing();
-        EthSyncing.Result result = new EthSyncing.Result();
+        OkcSyncing ethSyncing = new OkcSyncing();
+        OkcSyncing.Result result = new OkcSyncing.Result();
         result.setSyncing(isSyncing);
         ethSyncing.setResult(result);
 
-        when(web3jService.send(any(Request.class), eq(EthSyncing.class)))
+        when(web3jService.send(any(Request.class), eq(OkcSyncing.class)))
                 .thenReturn(ethSyncing);
     }
 
     private void configureLatestBlock(long timestamp) throws IOException {
-        EthBlock.Block block = new EthBlock.Block();
+        OkcBlock.Block block = new OkcBlock.Block();
         block.setTimestamp(Numeric.encodeQuantity(BigInteger.valueOf(timestamp)));
-        EthBlock ethBlock = new EthBlock();
+        OkcBlock ethBlock = new OkcBlock();
         ethBlock.setResult(block);
 
-        when(web3jService.send(any(Request.class), eq(EthBlock.class)))
+        when(web3jService.send(any(Request.class), eq(OkcBlock.class)))
                 .thenReturn(ethBlock);
     }
 

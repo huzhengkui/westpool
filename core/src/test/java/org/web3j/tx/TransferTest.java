@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import org.web3j.crypto.SampleKeys;
 import org.web3j.protocol.core.Request;
-import org.web3j.protocol.core.methods.response.EthGasPrice;
+import org.web3j.protocol.core.methods.response.OkcGasPrice;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.utils.Convert;
 
@@ -55,10 +55,10 @@ public class TransferTest extends ManagedTransactionTester {
         transactionReceipt.setStatus("0x1");
         prepareTransaction(transactionReceipt);
 
-        EthGasPrice ethGasPrice = new EthGasPrice();
+        OkcGasPrice ethGasPrice = new OkcGasPrice();
         ethGasPrice.setResult("0x1");
 
-        Request<?, EthGasPrice> gasPriceRequest = mock(Request.class);
+        Request<?, OkcGasPrice> gasPriceRequest = mock(Request.class);
         when(gasPriceRequest.send()).thenReturn(ethGasPrice);
         when(web3j.ethGasPrice()).thenReturn((Request) gasPriceRequest);
 

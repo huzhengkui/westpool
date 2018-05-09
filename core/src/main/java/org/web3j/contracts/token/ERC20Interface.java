@@ -10,7 +10,7 @@ import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 
 /**
- * The Ethereum ERC-20 token standard.
+ * The Okc ERC-20 token standard.
  * <p>
  *     Implementations should provide the concrete <code>ApprovalEventResponse</code> and
  *     <code>TransferEventResponse</code> from their token as the generic types "R" amd "T".

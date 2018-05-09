@@ -5,8 +5,8 @@ import org.web3j.ens.contracts.generated.ENS;
 import org.web3j.ens.contracts.generated.PublicResolver;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.response.EthBlock;
-import org.web3j.protocol.core.methods.response.EthSyncing;
+import org.web3j.protocol.core.methods.response.OkcBlock;
+import org.web3j.protocol.core.methods.response.OkcSyncing;
 import org.web3j.protocol.core.methods.response.NetVersion;
 import org.web3j.tx.ClientTransactionManager;
 import org.web3j.tx.ManagedTransaction;
@@ -75,7 +75,7 @@ public class EnsResolver {
             try {
                 contractAddress = resolver.addr(nameHash).send();
             } catch (Exception e) {
-                throw new RuntimeException("Unable to execute Ethereum request", e);
+                throw new RuntimeException("Unable to execute Okc request", e);
             }
 
             if (!WalletUtils.isValidAddress(contractAddress)) {
@@ -104,7 +104,7 @@ public class EnsResolver {
             try {
                 name = resolver.name(nameHash).send();
             } catch (Exception e) {
-                throw new RuntimeException("Unable to execute Ethereum request", e);
+                throw new RuntimeException("Unable to execute Okc request", e);
             }
 
             if (!isValidEnsName(name)) {
@@ -136,11 +136,11 @@ public class EnsResolver {
     }
 
     boolean isSynced() throws Exception {
-        EthSyncing ethSyncing = web3j.ethSyncing().send();
+        OkcSyncing ethSyncing = web3j.ethSyncing().send();
         if (ethSyncing.isSyncing()) {
             return false;
         } else {
-            EthBlock ethBlock =
+            OkcBlock ethBlock =
                     web3j.ethGetBlockByNumber(DefaultBlockParameterName.LATEST, false).send();
             long timestamp = ethBlock.getBlock().getTimestamp().longValueExact() * 1000;
 

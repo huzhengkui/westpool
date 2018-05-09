@@ -19,9 +19,9 @@ import org.web3j.protocol.ObjectMapperFactory;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.Web3jService;
 import org.web3j.protocol.core.Request;
-import org.web3j.protocol.core.methods.response.EthFilter;
-import org.web3j.protocol.core.methods.response.EthLog;
-import org.web3j.protocol.core.methods.response.EthUninstallFilter;
+import org.web3j.protocol.core.methods.response.OkcFilter;
+import org.web3j.protocol.core.methods.response.OkcLog;
+import org.web3j.protocol.core.methods.response.OkcUninstallFilter;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -47,16 +47,16 @@ public abstract class FilterTester {
         web3j = Web3j.build(web3jService, 1000, scheduledExecutorService);
     }
 
-    <T> void runTest(EthLog ethLog, Observable<T> observable) throws Exception {
-        EthFilter ethFilter = objectMapper.readValue(
+    <T> void runTest(OkcLog ethLog, Observable<T> observable) throws Exception {
+        OkcFilter ethFilter = objectMapper.readValue(
                 "{\n"
                         + "  \"id\":1,\n"
                         + "  \"jsonrpc\": \"2.0\",\n"
                         + "  \"result\": \"0x1\"\n"
-                        + "}", EthFilter.class);
+                        + "}", OkcFilter.class);
 
-        EthUninstallFilter ethUninstallFilter = objectMapper.readValue(
-                "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":true}", EthUninstallFilter.class);
+        OkcUninstallFilter ethUninstallFilter = objectMapper.readValue(
+                "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":true}", OkcUninstallFilter.class);
 
         @SuppressWarnings("unchecked")
         List<T> expected = createExpected(ethLog);
@@ -66,11 +66,11 @@ public abstract class FilterTester {
 
         CountDownLatch completedLatch = new CountDownLatch(1);
 
-        when(web3jService.send(any(Request.class), eq(EthFilter.class)))
+        when(web3jService.send(any(Request.class), eq(OkcFilter.class)))
                 .thenReturn(ethFilter);
-        when(web3jService.send(any(Request.class), eq(EthLog.class)))
+        when(web3jService.send(any(Request.class), eq(OkcLog.class)))
                 .thenReturn(ethLog);
-        when(web3jService.send(any(Request.class), eq(EthUninstallFilter.class)))
+        when(web3jService.send(any(Request.class), eq(OkcUninstallFilter.class)))
                 .thenReturn(ethUninstallFilter);
 
         Subscription subscription = observable.subscribe(
@@ -90,8 +90,8 @@ public abstract class FilterTester {
         assertTrue(subscription.isUnsubscribed());
     }
 
-    List createExpected(EthLog ethLog) {
-        List<EthLog.LogResult> logResults = ethLog.getLogs();
+    List createExpected(OkcLog ethLog) {
+        List<OkcLog.LogResult> logResults = ethLog.getLogs();
         if (logResults.isEmpty()) {
             fail("Results cannot be empty");
         }

@@ -32,10 +32,10 @@ import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.core.Request;
 import org.web3j.protocol.core.Response;
 import org.web3j.protocol.core.methods.request.Transaction;
-import org.web3j.protocol.core.methods.response.EthCall;
-import org.web3j.protocol.core.methods.response.EthGetCode;
-import org.web3j.protocol.core.methods.response.EthGetTransactionReceipt;
-import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.core.methods.response.OkcCall;
+import org.web3j.protocol.core.methods.response.OkcGetCode;
+import org.web3j.protocol.core.methods.response.OkcGetTransactionReceipt;
+import org.web3j.protocol.core.methods.response.OkcSendTransaction;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.exceptions.TransactionException;
@@ -120,7 +120,7 @@ public class ContractTest extends ManagedTransactionTester {
 
     @Test
     public void testIsValid() throws Exception {
-        prepareEthGetCode(TEST_CONTRACT_BINARY);
+        prepareOkcGetCode(TEST_CONTRACT_BINARY);
 
         Contract contract = deployContract(createTransactionReceipt());
         assertTrue(contract.isValid());
@@ -128,7 +128,7 @@ public class ContractTest extends ManagedTransactionTester {
 
     @Test
     public void testIsValidDifferentCode() throws Exception {
-        prepareEthGetCode(TEST_CONTRACT_BINARY + "0");
+        prepareOkcGetCode(TEST_CONTRACT_BINARY + "0");
 
         Contract contract = deployContract(createTransactionReceipt());
         assertFalse(contract.isValid());
@@ -136,7 +136,7 @@ public class ContractTest extends ManagedTransactionTester {
 
     @Test
     public void testIsValidEmptyCode() throws Exception {
-        prepareEthGetCode("");
+        prepareOkcGetCode("");
 
         Contract contract = deployContract(createTransactionReceipt());
         assertFalse(contract.isValid());
@@ -168,7 +168,7 @@ public class ContractTest extends ManagedTransactionTester {
     public void testCallSingleValue() throws Exception {
         // Example taken from FunctionReturnDecoderTest
 
-        EthCall ethCall = new EthCall();
+        OkcCall ethCall = new OkcCall();
         ethCall.setResult("0x0000000000000000000000000000000000000000000000000000000000000020"
                 + "0000000000000000000000000000000000000000000000000000000000000000");
         prepareCall(ethCall);
@@ -180,7 +180,7 @@ public class ContractTest extends ManagedTransactionTester {
     public void testCallSingleValueEmpty() throws Exception {
         // Example taken from FunctionReturnDecoderTest
 
-        EthCall ethCall = new EthCall();
+        OkcCall ethCall = new OkcCall();
         ethCall.setResult("0x");
         prepareCall(ethCall);
 
@@ -189,7 +189,7 @@ public class ContractTest extends ManagedTransactionTester {
 
     @Test
     public void testCallMultipleValue() throws Exception {
-        EthCall ethCall = new EthCall();
+        OkcCall ethCall = new OkcCall();
         ethCall.setResult("0x0000000000000000000000000000000000000000000000000000000000000037"
                 + "0000000000000000000000000000000000000000000000000000000000000007");
         prepareCall(ethCall);
@@ -202,7 +202,7 @@ public class ContractTest extends ManagedTransactionTester {
 
     @Test
     public void testCallMultipleValueEmpty() throws Exception {
-        EthCall ethCall = new EthCall();
+        OkcCall ethCall = new OkcCall();
         ethCall.setResult("0x");
         prepareCall(ethCall);
 
@@ -211,8 +211,8 @@ public class ContractTest extends ManagedTransactionTester {
     }
 
     @SuppressWarnings("unchecked")
-    private void prepareCall(EthCall ethCall) throws IOException {
-        Request<?, EthCall> request = mock(Request.class);
+    private void prepareCall(OkcCall ethCall) throws IOException {
+        Request<?, OkcCall> request = mock(Request.class);
         when(request.send()).thenReturn(ethCall);
 
         when(web3j.ethCall(any(Transaction.class), eq(DefaultBlockParameterName.LATEST)))
@@ -290,10 +290,10 @@ public class ContractTest extends ManagedTransactionTester {
     public void testInvalidTransactionResponse() throws Throwable {
         prepareNonceRequest();
 
-        EthSendTransaction ethSendTransaction = new EthSendTransaction();
+        OkcSendTransaction ethSendTransaction = new OkcSendTransaction();
         ethSendTransaction.setError(new Response.Error(1, "Invalid transaction"));
 
-        Request<?, EthSendTransaction> rawTransactionRequest = mock(Request.class);
+        Request<?, OkcSendTransaction> rawTransactionRequest = mock(Request.class);
         when(rawTransactionRequest.sendAsync()).thenReturn(Async.run(() -> ethSendTransaction));
         when(web3j.ethSendRawTransaction(any(String.class)))
                 .thenReturn((Request) rawTransactionRequest);
@@ -341,10 +341,10 @@ public class ContractTest extends ManagedTransactionTester {
         prepareNonceRequest();
         prepareTransactionRequest();
 
-        EthGetTransactionReceipt ethGetTransactionReceipt = new EthGetTransactionReceipt();
+        OkcGetTransactionReceipt ethGetTransactionReceipt = new OkcGetTransactionReceipt();
         ethGetTransactionReceipt.setError(new Response.Error(1, "Invalid transaction receipt"));
 
-        Request<?, EthGetTransactionReceipt> getTransactionReceiptRequest = mock(Request.class);
+        Request<?, OkcGetTransactionReceipt> getTransactionReceiptRequest = mock(Request.class);
         when(getTransactionReceiptRequest.sendAsync())
                 .thenReturn(Async.run(() -> ethGetTransactionReceipt));
         when(web3j.ethGetTransactionReceipt(TRANSACTION_HASH))
@@ -430,11 +430,11 @@ public class ContractTest extends ManagedTransactionTester {
     }
 
     @SuppressWarnings("unchecked")
-    private void prepareEthGetCode(String binary) throws IOException {
-        EthGetCode ethGetCode = new EthGetCode();
+    private void prepareOkcGetCode(String binary) throws IOException {
+        OkcGetCode ethGetCode = new OkcGetCode();
         ethGetCode.setResult(Numeric.prependHexPrefix(binary));
 
-        Request<?, EthGetCode> ethGetCodeRequest = mock(Request.class);
+        Request<?, OkcGetCode> ethGetCodeRequest = mock(Request.class);
         when(ethGetCodeRequest.send())
                 .thenReturn(ethGetCode);
         when(web3j.ethGetCode(ADDRESS, DefaultBlockParameterName.LATEST))

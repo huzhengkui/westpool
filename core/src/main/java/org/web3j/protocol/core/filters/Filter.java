@@ -16,9 +16,9 @@ import org.web3j.protocol.Web3j;
 
 import org.web3j.protocol.core.Request;
 import org.web3j.protocol.core.Response;
-import org.web3j.protocol.core.methods.response.EthFilter;
-import org.web3j.protocol.core.methods.response.EthLog;
-import org.web3j.protocol.core.methods.response.EthUninstallFilter;
+import org.web3j.protocol.core.methods.response.OkcFilter;
+import org.web3j.protocol.core.methods.response.OkcLog;
+import org.web3j.protocol.core.methods.response.OkcUninstallFilter;
 
 
 /**
@@ -42,7 +42,7 @@ public abstract class Filter<T> {
 
     public void run(ScheduledExecutorService scheduledExecutorService, long blockTime) {
         try {
-            EthFilter ethFilter = sendRequest();
+            OkcFilter ethFilter = sendRequest();
             if (ethFilter.hasError()) {
                 throwException(ethFilter.getError());
             }
@@ -87,12 +87,12 @@ public abstract class Filter<T> {
 
     private void getInitialFilterLogs() {
         try {
-            Optional<Request<?, EthLog>> maybeRequest = this.getFilterLogs(this.filterId);
-            EthLog ethLog = null;
+            Optional<Request<?, OkcLog>> maybeRequest = this.getFilterLogs(this.filterId);
+            OkcLog ethLog = null;
             if (maybeRequest.isPresent()) {
                 ethLog = maybeRequest.get().send();
             } else {
-                ethLog = new EthLog();
+                ethLog = new OkcLog();
                 ethLog.setResult(Collections.emptyList());
             }
             process(ethLog.getLogs());
@@ -102,8 +102,8 @@ public abstract class Filter<T> {
         }
     }
 
-    private void pollFilter(EthFilter ethFilter) {
-        EthLog ethLog = null;
+    private void pollFilter(OkcFilter ethFilter) {
+        OkcLog ethLog = null;
         try {
             ethLog = web3j.ethGetFilterChanges(filterId).send();
         } catch (IOException e) {
@@ -116,15 +116,15 @@ public abstract class Filter<T> {
         }
     }
 
-    abstract EthFilter sendRequest() throws IOException;
+    abstract OkcFilter sendRequest() throws IOException;
 
-    abstract void process(List<EthLog.LogResult> logResults);
+    abstract void process(List<OkcLog.LogResult> logResults);
 
     public void cancel() {
         schedule.cancel(false);
 
         try {
-            EthUninstallFilter ethUninstallFilter = web3j.ethUninstallFilter(filterId).send();
+            OkcUninstallFilter ethUninstallFilter = web3j.ethUninstallFilter(filterId).send();
             if (ethUninstallFilter.hasError()) {
                 throwException(ethUninstallFilter.getError());
             }
@@ -140,12 +140,12 @@ public abstract class Filter<T> {
     /**
      * Retrieves historic filters for the filter with the given id.
      * Getting historic logs is not supported by all filters.
-     * If not the method should return an empty EthLog object
+     * If not the method should return an empty OkcLog object
      *
      * @param filterId Id of the filter for which the historic log should be retrieved
      * @return Historic logs, or an empty optional if the filter cannot retrieve historic logs
      */
-    protected abstract Optional<Request<?, EthLog>> getFilterLogs(BigInteger filterId);
+    protected abstract Optional<Request<?, OkcLog>> getFilterLogs(BigInteger filterId);
 
     void throwException(Response.Error error) {
         throw new FilterException("Invalid request: "
