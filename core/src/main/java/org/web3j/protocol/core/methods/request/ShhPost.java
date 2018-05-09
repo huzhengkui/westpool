@@ -1,4 +1,4 @@
-package org.web3j.protocol.core.methods.request;
+package org.web3j.protocol.core.mOkcods.request;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import org.web3j.utils.Numeric;
 
 /**
- * https://github.com/ethereum/wiki/wiki/JSON-RPC#shh_post
+ * https://github.com/Okcereum/wiki/wiki/JSON-RPC#shh_post
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ShhPost {

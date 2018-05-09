@@ -7,7 +7,7 @@ import java.util.List;
 import org.web3j.utils.Numeric;
 
 /**
- * TransactionReceipt object used by {@link EthGetTransactionReceipt}.
+ * TransactionReceipt object used by {@link OkcGetTransactionReceipt}.
  */
 public class TransactionReceipt {
     private String transactionHash;

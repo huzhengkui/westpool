@@ -27,7 +27,7 @@ import org.web3j.protocol.core.DefaultBlockParameter;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.core.methods.request.Transaction;
-import org.web3j.protocol.core.methods.response.EthGetCode;
+import org.web3j.protocol.core.methods.response.OkcGetCode;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.exceptions.TransactionException;
@@ -144,7 +144,7 @@ public abstract class Contract extends ManagedTransaction {
      * is in fact the contract you believe it is.
      *
      * <p>This method uses the
-     * <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getcode">eth_getCode</a> method
+     * <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC#okc_getcode">okc_getCode</a> method
      * to get the contract byte code and validates it against the byte code stored in this smart
      * contract wrapper.
      *
@@ -158,7 +158,7 @@ public abstract class Contract extends ManagedTransaction {
                             + "contract wrapper with web3j v2.2.0+");
         }
 
-        EthGetCode ethGetCode = web3j
+        OkcGetCode ethGetCode = web3j
                 .ethGetCode(contractAddress, DefaultBlockParameterName.LATEST)
                 .send();
         if (ethGetCode.hasError()) {
@@ -201,8 +201,8 @@ public abstract class Contract extends ManagedTransaction {
     private List<Type> executeCall(
             Function function) throws IOException {
         String encodedFunction = FunctionEncoder.encode(function);
-        org.web3j.protocol.core.methods.response.EthCall ethCall = web3j.ethCall(
-                Transaction.createEthCallTransaction(
+        org.web3j.protocol.core.methods.response.OkcCall ethCall = web3j.ethCall(
+                Transaction.createOkcCallTransaction(
                         transactionManager.getFromAddress(), contractAddress, encodedFunction),
                 defaultBlockParameter)
                 .send();
