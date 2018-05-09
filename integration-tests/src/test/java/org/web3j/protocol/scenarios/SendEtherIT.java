@@ -18,7 +18,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Simple integration test to demonstrate sending of Okcer between parties.
  */
-public class SendOkcerIT extends Scenario {
+public class SendEtherIT extends Scenario {
 
     @Test
     public void testTransferOkcer() throws Exception {
