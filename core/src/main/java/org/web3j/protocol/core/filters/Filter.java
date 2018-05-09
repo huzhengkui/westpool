@@ -105,7 +105,7 @@ public abstract class Filter<T> {
     private void pollFilter(OkcFilter ethFilter) {
         OkcLog ethLog = null;
         try {
-            ethLog = web3j.ethGetFilterChanges(filterId).send();
+            ethLog = web3j.okcGetFilterChanges(filterId).send();
         } catch (IOException e) {
             throwException(e);
         }
@@ -124,7 +124,7 @@ public abstract class Filter<T> {
         schedule.cancel(false);
 
         try {
-            OkcUninstallFilter ethUninstallFilter = web3j.ethUninstallFilter(filterId).send();
+            OkcUninstallFilter ethUninstallFilter = web3j.okcUninstallFilter(filterId).send();
             if (ethUninstallFilter.hasError()) {
                 throwException(ethUninstallFilter.getError());
             }

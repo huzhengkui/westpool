@@ -158,14 +158,14 @@ public abstract class Contract extends ManagedTransaction {
                             + "contract wrapper with web3j v2.2.0+");
         }
 
-        OkcGetCode ethGetCode = web3j
-                .ethGetCode(contractAddress, DefaultBlockParameterName.LATEST)
+        OkcGetCode okcGetCode = web3j
+                .okcGetCode(contractAddress, DefaultBlockParameterName.LATEST)
                 .send();
-        if (ethGetCode.hasError()) {
+        if (okcGetCode.hasError()) {
             return false;
         }
 
-        String code = Numeric.cleanHexPrefix(ethGetCode.getCode());
+        String code = Numeric.cleanHexPrefix(okcGetCode.getCode());
         // There may be multiple contracts in the Solidity bytecode, hence we only check for a
         // match with a subset
         return !code.isEmpty() && contractBinary.contains(code);
@@ -201,13 +201,13 @@ public abstract class Contract extends ManagedTransaction {
     private List<Type> executeCall(
             Function function) throws IOException {
         String encodedFunction = FunctionEncoder.encode(function);
-        org.web3j.protocol.core.methods.response.OkcCall ethCall = web3j.ethCall(
+        org.web3j.protocol.core.methods.response.OkcCall okcCall = web3j.okcCall(
                 Transaction.createOkcCallTransaction(
                         transactionManager.getFromAddress(), contractAddress, encodedFunction),
                 defaultBlockParameter)
                 .send();
 
-        String value = ethCall.getValue();
+        String value = okcCall.getValue();
         return FunctionReturnDecoder.decode(value, function.getOutputParameters());
     }
 

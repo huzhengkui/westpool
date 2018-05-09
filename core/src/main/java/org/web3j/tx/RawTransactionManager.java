@@ -67,7 +67,7 @@ public class RawTransactionManager extends TransactionManager {
     }
 
     protected BigInteger getNonce() throws IOException {
-        OkcGetTransactionCount ethGetTransactionCount = web3j.ethGetTransactionCount(
+        OkcGetTransactionCount ethGetTransactionCount = web3j.okcGetTransactionCount(
                 credentials.getAddress(), DefaultBlockParameterName.PENDING).send();
 
         return ethGetTransactionCount.getTransactionCount();
@@ -104,6 +104,6 @@ public class RawTransactionManager extends TransactionManager {
 
         String hexValue = Numeric.toHexString(signedMessage);
 
-        return web3j.ethSendRawTransaction(hexValue).send();
+        return web3j.okcSendRawTransaction(hexValue).send();
     }
 }

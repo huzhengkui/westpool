@@ -19,7 +19,7 @@ public interface Web3jRx {
      * @param ethFilter filter criteria
      * @return Observable that emits all Log events matching the filter
      */
-    Observable<Log> ethLogObservable(OkcFilter ethFilter);
+    Observable<Log> okcLogObservable(OkcFilter okcFilter);
 
     /**
      * Create an Observable to emit block hashes.
@@ -27,7 +27,7 @@ public interface Web3jRx {
      * @return Observable that emits all new block hashes as new blocks are created on the
      *         blockchain
      */
-    Observable<String> ethBlockHashObservable();
+    Observable<String> okcBlockHashObservable();
 
     /**
      * Create an Observable to emit pending transactions, i.e. those transactions that have been
@@ -35,7 +35,7 @@ public interface Web3jRx {
      *
      * @return Observable to emit pending transaction hashes.
      */
-    Observable<String> ethPendingTransactionHashObservable();
+    Observable<String> okcPendingTransactionHashObservable();
 
     /**
      * Create an Observable to emit all new transactions as they are confirmed on the blockchain.

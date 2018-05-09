@@ -28,7 +28,7 @@ public class LogFilter extends Filter<Log> {
 
     @Override
     OkcFilter sendRequest() throws IOException {
-        return web3j.ethNewFilter(ethFilter).send();
+        return web3j.okcNewFilter(okcFilter).send();
     }
 
     @Override
@@ -46,6 +46,6 @@ public class LogFilter extends Filter<Log> {
 
     @Override
     protected Optional<Request<?, OkcLog>> getFilterLogs(BigInteger filterId) {
-        return Optional.of(web3j.ethGetFilterLogs(filterId));
+        return Optional.of(web3j.okcGetFilterLogs(filterId));
     }
 }

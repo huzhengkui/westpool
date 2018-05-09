@@ -26,7 +26,7 @@ public abstract class TransactionReceiptProcessor {
     Optional<TransactionReceipt> sendTransactionReceiptRequest(
             String transactionHash) throws IOException, TransactionException {
         OkcGetTransactionReceipt transactionReceipt =
-                web3j.ethGetTransactionReceipt(transactionHash).send();
+                web3j.okcGetTransactionReceipt(transactionHash).send();
         if (transactionReceipt.hasError()) {
             throw new TransactionException("Error processing request: "
                     + transactionReceipt.getError().getMessage());

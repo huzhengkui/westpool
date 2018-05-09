@@ -39,7 +39,7 @@ public class JsonRpc2_0Rx {
         this.scheduler = Schedulers.from(scheduledExecutorService);
     }
 
-    public Observable<String> ethBlockHashObservable(long pollingInterval) {
+    public Observable<String> okcBlockHashObservable(long pollingInterval) {
         return Observable.create(subscriber -> {
             BlockFilter blockFilter = new BlockFilter(
                     web3j, subscriber::onNext);
@@ -47,7 +47,7 @@ public class JsonRpc2_0Rx {
         });
     }
 
-    public Observable<String> ethPendingTransactionHashObservable(long pollingInterval) {
+    public Observable<String> okcPendingTransactionHashObservable(long pollingInterval) {
         return Observable.create(subscriber -> {
             PendingTransactionFilter pendingTransactionFilter = new PendingTransactionFilter(
                     web3j, subscriber::onNext);
@@ -56,11 +56,11 @@ public class JsonRpc2_0Rx {
         });
     }
 
-    public Observable<Log> ethLogObservable(
-            org.web3j.protocol.core.methods.request.OkcFilter ethFilter, long pollingInterval) {
+    public Observable<Log> okcLogObservable(
+            org.web3j.protocol.core.methods.request.OkcFilter okcFilter, long pollingInterval) {
         return Observable.create((Subscriber<? super Log> subscriber) -> {
             LogFilter logFilter = new LogFilter(
-                    web3j, subscriber::onNext, ethFilter);
+                    web3j, subscriber::onNext, okcFilter);
 
             run(logFilter, subscriber, pollingInterval);
         });
@@ -80,18 +80,18 @@ public class JsonRpc2_0Rx {
     }
 
     public Observable<Transaction> pendingTransactionObservable(long pollingInterval) {
-        return ethPendingTransactionHashObservable(pollingInterval)
+        return okcPendingTransactionHashObservable(pollingInterval)
                 .flatMap(transactionHash ->
-                        web3j.ethGetTransactionByHash(transactionHash).observable())
-                .filter(ethTransaction -> ethTransaction.getTransaction().isPresent())
-                .map(ethTransaction -> ethTransaction.getTransaction().get());
+                        web3j.okcGetTransactionByHash(transactionHash).observable())
+                .filter(okcTransaction -> okcTransaction.getTransaction().isPresent())
+                .map(okcTransaction -> okcTransaction.getTransaction().get());
     }
 
     public Observable<OkcBlock> blockObservable(
             boolean fullTransactionObjects, long pollingInterval) {
-        return ethBlockHashObservable(pollingInterval)
+        return okcBlockHashObservable(pollingInterval)
                 .flatMap(blockHash ->
-                        web3j.ethGetBlockByHash(blockHash, fullTransactionObjects).observable());
+                        web3j.okcGetBlockByHash(blockHash, fullTransactionObjects).observable());
     }
 
     public Observable<OkcBlock> replayBlocksObservable(
@@ -229,10 +229,10 @@ public class JsonRpc2_0Rx {
         }
     }
 
-    private static List<Transaction> toTransactions(OkcBlock ethBlock) {
+    private static List<Transaction> toTransactions(OkcBlock okcBlock) {
         // If you ever see an exception thrown here, it's probably due to an incomplete chain in
         // Geth/Parity. You should resync to solve.
-        return ethBlock.getBlock().getTransactions().stream()
+        return okcBlock.getBlock().getTransactions().stream()
                 .map(transactionResult -> (Transaction) transactionResult.get())
                 .collect(Collectors.toList());
     }
