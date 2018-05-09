@@ -21,7 +21,7 @@ public class PendingTransactionFilter extends Filter<String> {
 
     @Override
     OkcFilter sendRequest() throws IOException {
-        return web3j.ethNewPendingTransactionFilter().send();
+        return web3j.okcNewPendingTransactionFilter().send();
     }
 
     @Override

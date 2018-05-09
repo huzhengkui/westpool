@@ -21,7 +21,7 @@ public class BlockFilter extends Filter<String> {
 
     @Override
     OkcFilter sendRequest() throws IOException {
-        return web3j.ethNewBlockFilter().send();
+        return web3j.okcNewBlockFilter().send();
     }
 
     @Override

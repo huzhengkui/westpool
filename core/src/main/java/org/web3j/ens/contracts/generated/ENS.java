@@ -70,7 +70,7 @@ public final class ENS extends Contract {
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
         OkcFilter filter = new OkcFilter(startBlock, endBlock, getContractAddress());
         filter.addSingleTopic(EventEncoder.encode(event));
-        return web3j.ethLogObservable(filter).map(new Func1<Log, NewOwnerEventResponse>() {
+        return web3j.okcLogObservable(filter).map(new Func1<Log, NewOwnerEventResponse>() {
             @Override
             public NewOwnerEventResponse call(Log log) {
                 EventValues eventValues = extractEventParameters(event, log);
@@ -104,7 +104,7 @@ public final class ENS extends Contract {
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
         OkcFilter filter = new OkcFilter(startBlock, endBlock, getContractAddress());
         filter.addSingleTopic(EventEncoder.encode(event));
-        return web3j.ethLogObservable(filter).map(new Func1<Log, TransferEventResponse>() {
+        return web3j.okcLogObservable(filter).map(new Func1<Log, TransferEventResponse>() {
             @Override
             public TransferEventResponse call(Log log) {
                 EventValues eventValues = extractEventParameters(event, log);
@@ -137,7 +137,7 @@ public final class ENS extends Contract {
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
         OkcFilter filter = new OkcFilter(startBlock, endBlock, getContractAddress());
         filter.addSingleTopic(EventEncoder.encode(event));
-        return web3j.ethLogObservable(filter).map(new Func1<Log, NewResolverEventResponse>() {
+        return web3j.okcLogObservable(filter).map(new Func1<Log, NewResolverEventResponse>() {
             @Override
             public NewResolverEventResponse call(Log log) {
                 EventValues eventValues = extractEventParameters(event, log);
@@ -170,7 +170,7 @@ public final class ENS extends Contract {
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint64>() {}));
         OkcFilter filter = new OkcFilter(startBlock, endBlock, getContractAddress());
         filter.addSingleTopic(EventEncoder.encode(event));
-        return web3j.ethLogObservable(filter).map(new Func1<Log, NewTTLEventResponse>() {
+        return web3j.okcLogObservable(filter).map(new Func1<Log, NewTTLEventResponse>() {
             @Override
             public NewTTLEventResponse call(Log log) {
                 EventValues eventValues = extractEventParameters(event, log);

@@ -22,7 +22,7 @@ public class LogFilter extends Filter<Log> {
             Web3j web3j, Callback<Log> callback,
             org.web3j.protocol.core.methods.request.OkcFilter ethFilter) {
         super(web3j, callback);
-        this.ethFilter = ethFilter;
+        this.okcFilter = okcFilter;
     }
 
 
