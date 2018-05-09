@@ -17,11 +17,12 @@ import org.web3j.abi.datatypes.Type;
 import org.web3j.abi.datatypes.generated.Uint256;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.request.OkcFilter;
 import org.web3j.protocol.core.methods.request.Transaction;
 import org.web3j.protocol.core.methods.response.OkcEstimateGas;
 import org.web3j.protocol.core.methods.response.OkcLog;
-import org.web3j.protocol.core.methods.response.Log;
+
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 
 import static junit.framework.TestCase.assertFalse;

@@ -8,6 +8,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.NetListening;
+import org.web3j.protocol.core.methods.response.NetPeerCount;
+import org.web3j.protocol.core.methods.response.NetVersion;
 import org.web3j.protocol.core.methods.response.OkcAccounts;
 import org.web3j.protocol.core.methods.response.OkcBlock;
 import org.web3j.protocol.core.methods.response.OkcBlockNumber;
@@ -37,9 +40,7 @@ import org.web3j.protocol.core.methods.response.OkcSendTransaction;
 import org.web3j.protocol.core.methods.response.OkcSyncing;
 import org.web3j.protocol.core.methods.response.OkcTransaction;
 import org.web3j.protocol.core.methods.response.OkcUninstallFilter;
-import org.web3j.protocol.core.methods.response.NetListening;
-import org.web3j.protocol.core.methods.response.NetPeerCount;
-import org.web3j.protocol.core.methods.response.NetVersion;
+
 import org.web3j.protocol.core.methods.response.ShhNewGroup;
 import org.web3j.protocol.core.methods.response.ShhNewIdentity;
 import org.web3j.protocol.core.methods.response.ShhVersion;
