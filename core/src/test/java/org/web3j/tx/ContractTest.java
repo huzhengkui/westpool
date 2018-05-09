@@ -32,11 +32,12 @@ import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.core.Request;
 import org.web3j.protocol.core.Response;
 import org.web3j.protocol.core.methods.request.Transaction;
+import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.OkcCall;
 import org.web3j.protocol.core.methods.response.OkcGetCode;
 import org.web3j.protocol.core.methods.response.OkcGetTransactionReceipt;
 import org.web3j.protocol.core.methods.response.OkcSendTransaction;
-import org.web3j.protocol.core.methods.response.Log;
+
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.exceptions.TransactionException;
 import org.web3j.tx.gas.ContractGasProvider;

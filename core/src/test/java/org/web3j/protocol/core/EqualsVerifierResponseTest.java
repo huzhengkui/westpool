@@ -5,11 +5,12 @@ import nl.jqno.equalsverifier.Warning;
 import org.junit.Test;
 
 import org.web3j.protocol.core.methods.response.AbiDefinition;
+import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.OkcBlock;
 import org.web3j.protocol.core.methods.response.OkcCompileSolidity;
 import org.web3j.protocol.core.methods.response.OkcLog;
 import org.web3j.protocol.core.methods.response.OkcSyncing;
-import org.web3j.protocol.core.methods.response.Log;
+
 import org.web3j.protocol.core.methods.response.ShhMessages;
 import org.web3j.protocol.core.methods.response.Transaction;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;

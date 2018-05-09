@@ -13,10 +13,11 @@ import org.web3j.protocol.Web3j;
 import org.web3j.protocol.Web3jService;
 import org.web3j.protocol.core.JsonRpc2_0Web3j;
 import org.web3j.protocol.core.Request;
+import org.web3j.protocol.core.methods.response.NetVersion;
 import org.web3j.protocol.core.methods.response.OkcBlock;
 import org.web3j.protocol.core.methods.response.OkcCall;
 import org.web3j.protocol.core.methods.response.OkcSyncing;
-import org.web3j.protocol.core.methods.response.NetVersion;
+
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.ChainId;
 import org.web3j.utils.Numeric;
