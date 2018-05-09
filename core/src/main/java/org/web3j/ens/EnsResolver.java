@@ -5,9 +5,10 @@ import org.web3j.ens.contracts.generated.ENS;
 import org.web3j.ens.contracts.generated.PublicResolver;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.NetVersion;
 import org.web3j.protocol.core.methods.response.OkcBlock;
 import org.web3j.protocol.core.methods.response.OkcSyncing;
-import org.web3j.protocol.core.methods.response.NetVersion;
+
 import org.web3j.tx.ClientTransactionManager;
 import org.web3j.tx.ManagedTransaction;
 import org.web3j.tx.TransactionManager;

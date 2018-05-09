@@ -19,8 +19,9 @@ import org.web3j.protocol.core.DefaultBlockParameterNumber;
 import org.web3j.protocol.core.filters.BlockFilter;
 import org.web3j.protocol.core.filters.LogFilter;
 import org.web3j.protocol.core.filters.PendingTransactionFilter;
-import org.web3j.protocol.core.methods.response.OkcBlock;
 import org.web3j.protocol.core.methods.response.Log;
+import org.web3j.protocol.core.methods.response.OkcBlock;
+
 import org.web3j.protocol.core.methods.response.Transaction;
 import org.web3j.utils.Observables;
 

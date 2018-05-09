@@ -16,6 +16,10 @@ import org.web3j.protocol.core.methods.response.DbGetHex;
 import org.web3j.protocol.core.methods.response.DbGetString;
 import org.web3j.protocol.core.methods.response.DbPutHex;
 import org.web3j.protocol.core.methods.response.DbPutString;
+import org.web3j.protocol.core.methods.response.Log;
+import org.web3j.protocol.core.methods.response.NetListening;
+import org.web3j.protocol.core.methods.response.NetPeerCount;
+import org.web3j.protocol.core.methods.response.NetVersion;
 import org.web3j.protocol.core.methods.response.OkcAccounts;
 import org.web3j.protocol.core.methods.response.OkcBlock;
 import org.web3j.protocol.core.methods.response.OkcBlockNumber;
@@ -47,10 +51,8 @@ import org.web3j.protocol.core.methods.response.OkcSubmitWork;
 import org.web3j.protocol.core.methods.response.OkcSyncing;
 import org.web3j.protocol.core.methods.response.OkcTransaction;
 import org.web3j.protocol.core.methods.response.OkcUninstallFilter;
-import org.web3j.protocol.core.methods.response.Log;
-import org.web3j.protocol.core.methods.response.NetListening;
-import org.web3j.protocol.core.methods.response.NetPeerCount;
-import org.web3j.protocol.core.methods.response.NetVersion;
+
+
 import org.web3j.protocol.core.methods.response.ShhAddToGroup;
 import org.web3j.protocol.core.methods.response.ShhHasIdentity;
 import org.web3j.protocol.core.methods.response.ShhMessages;

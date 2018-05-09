@@ -7,9 +7,10 @@ import java.util.Optional;
 
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.Request;
+import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.OkcFilter;
 import org.web3j.protocol.core.methods.response.OkcLog;
-import org.web3j.protocol.core.methods.response.Log;
+
 
 /**
  * Log filter handler.
