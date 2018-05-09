@@ -75,7 +75,7 @@ Alternatively, you can write and compile Solidity code in your browser via the
 great for smaller smart contracts, but you may run into issues working with larger contracts.
 
 You can also compile Solidity code via Ethereum clients such as Geth and Parity, using the JSON-RPC
-method `eth_compileSolidity <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_compileSolidity>`_
+method `okc_compileSolidity <https://github.com/ethereum/wiki/wiki/JSON-RPC#okc_compileSolidity>`_
 which is also supported in web3j. However, the Solidity compiler must be installed on the client
 for this to work.
 
@@ -359,7 +359,7 @@ Invoking transactions and events
 All transactional smart contract methods are named identically to their Solidity methods, taking
 the same parameter values. Transactional calls do not return any values, regardless of the return
 type specified on the method. Hence, for all transactional methods the
-`Transaction Receipt <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionreceipt>`_
+`Transaction Receipt <https://github.com/ethereum/wiki/wiki/JSON-RPC#okc_gettransactionreceipt>`_
 associated with the transaction is returned.::
 
    TransactionReceipt transactionReceipt = contract.someMethod(

@@ -285,7 +285,7 @@ The transaction can then be signed and encoded::
 
 Where the credentials are those loaded as per :ref:`wallet-files`.
 
-The transaction is then sent using `eth_sendRawTransaction <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendrawtransaction>`_::
+The transaction is then sent using `okc_sendRawTransaction <https://github.com/ethereum/wiki/wiki/JSON-RPC#okc_sendrawtransaction>`_::
 
    okcSendTransaction okcSendTransaction = web3j.okcSendRawTransaction(hexValue).sendAsync().get();
    String transactionHash = okcSendTransaction.getTransactionHash();
@@ -307,7 +307,7 @@ can only be used once and until a transaction is mined, it is possible to send m
 a transaction with the same nonce, however, once mined, any subsequent submissions will be rejected.
 
 You can obtain the next available nonce via the
-`eth_getTransactionCount <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactioncount>`_ method::
+`okc_getTransactionCount <https://github.com/ethereum/wiki/wiki/JSON-RPC#okc_gettransactioncount>`_ method::
 
    okcGetTransactionCount okcGetTransactionCount = web3j.okcGetTransactionCount(
                 address, DefaultBlockParameterName.LATEST).sendAsync().get();
@@ -328,7 +328,7 @@ Transaction types
 The different types of transaction in web3j work with both Transaction and RawTransaction objects.
 The key difference is that Transaction objects must always have a from address, so that the
 Ethereum client which processes the
-`eth_sendTransaction <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendtransaction>`_
+`okc_sendTransaction <https://github.com/ethereum/wiki/wiki/JSON-RPC#okc_sendtransaction>`_
 request know which wallet to use in order to sign and send the transaction on the message senders
 behalf. As mentioned :ref:`above <offline-signing>`, this is not necessary for raw transactions
 which are signed offline.
@@ -488,10 +488,10 @@ using filters. Please refer to the :doc:`filters` section for details.
 Querying the state of a smart contract
 --------------------------------------
 
-This functionality is facilitated by the `eth_call <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_call>`_
+This functionality is facilitated by the `okc_call <https://github.com/ethereum/wiki/wiki/JSON-RPC#okc_call>`_
 JSON-RPC call.
 
-eth_call allows you to call a method on a smart contract to query a value. There is no transaction
+okc_call allows you to call a method on a smart contract to query a value. There is no transaction
 cost associated with this function, this is because it does not change the state of any smart
 contract method's called, it simply returns the value from them::
 
